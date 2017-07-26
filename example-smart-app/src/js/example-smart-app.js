@@ -27,9 +27,11 @@
           var gender = patient.gender;
           //var dr = cond.dateRecorded;
           //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
-          alert('mec...here...CCC');
+          alert('mec...here...CCC (' + gender +')');
+          alert('mec...here...DDD len (' + cond.length + ')');
+
         });
-        alert('mec...DDD');
+        alert('mec...EEE');
 
 
         var obv = smart.patient.api.fetchAll({
