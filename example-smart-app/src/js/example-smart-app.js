@@ -78,7 +78,7 @@
           //mec...hmmm...
 //          $.when(patient.api.search({type: "Observation", query: {code: '8302-2'}, count: 50}))
 //              .done(function (obsSearchResults) {
-          alert('mec...here...B');
+//          alert('mec...here...B');
 //          obv.data.entry.forEach(function (obs) {
 //            alert('mec...here...2');
 //            var obsRow = "<tr><td>" + obs.effectiveDateTime + "</td>" + "<td>" +
@@ -92,6 +92,19 @@
 
           ret.resolve(p);
         });
+
+        //mec...hmmm...
+        alert('mec...111');
+        $.when(smart.patient.api.search({type: "Observation", query: {code: '8302-2'}, count: 50}))
+            .done(function (obsSearchResults) {
+              obsSearchResults.data.entry.forEach(function (obs) {
+                var obsRow = "<tr><td>" + obs.resource.effectiveDateTime + "</td>" + "<td>" +
+                    obs.resource.valueQuantity.value + obs.resource.valueQuantity.unit + "</td></tr>"
+                //mec...$("#obsTable").append(obsRow);
+                alert('mec...(' + obsRow + ')')
+              });
+            });
+        alert('mec...here...3');
 
 
         ////VVV mec...yoyo...
