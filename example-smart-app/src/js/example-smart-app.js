@@ -106,6 +106,18 @@
             });
         alert('mec...here...3');
 
+        var cond = smart.patient.api.fetchAll({
+          type: 'Condition',
+          category: 'problem',
+          clinicalstatus: 'active'
+        });
+
+        $.when(pt, cond).fail(onError);
+
+        alert('mec...here...4');
+        $.when(pt, cond).done(function(patient, cond) {
+          alert('mec...here...5');
+        });
 
         ////VVV mec...yoyo...
         //alert('mec...before to cool');
