@@ -68,12 +68,10 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           alert('mec...here...('+ patient.id +',' + patient.name[0].family + ',' + patient.birthDate + ',' + patient.name[0].use +',' + patient.name[0].period.start + ',' + patient.careProvider[0].display + ')');
-          //var byMec = smart.byCodes(obv, 'effectiveDateTime');
           var mmm = height[0].effectiveDateTime;
 
           alert('mec...here...mmm...('+ mmm + ')');
           var mec = 'bogus...';
-          //var mec = obv.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
           p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
 
           ret.resolve(p);
@@ -81,9 +79,9 @@
 
 
         //VVV mec...yoyo...
-        alert('mec...before to cool');
+        //alert('mec...before to cool');
         var cond = smart.patient.api.fetchAll({
-          type: 'Observation',
+          type: 'Condition',
           query: {
             //dateRecorded: {
             //  $or: ['2017-02-23', '2017-07-19']
@@ -103,6 +101,8 @@
         p.contcategory = 'mec...junk4';
 
         $.when(pt, cond).fail(onError);
+
+        alert('mec...mid...to cool...');
 
         $.when(pt, cond).done(function(patient, cond) {
           alert('mec...to cool');
