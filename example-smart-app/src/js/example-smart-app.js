@@ -67,9 +67,9 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           alert('mec...here...('+ patient.id +',' + patient.name[0].family + ',' + patient.birthDate + ',' + patient.name[0].use +',' + patient.name[0].period.start + ',' + patient.careProvider[0].display + ')');
           //var byMec = smart.byCodes(obv, 'effectiveDateTime');
-          var mmm = byCodes('effectiveDateTime');
+          var mmm = height[0].effectiveDateTime;
 
-          alert('mec...here...mmm...('+ mmm[0] + ',' + obv.fname + ')');
+          alert('mec...here...mmm...('+ mmm + ')');
           var mec = 'bogus...';
           //var mec = obv.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
           p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
