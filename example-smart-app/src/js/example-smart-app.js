@@ -65,7 +65,8 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          p.ldl = diastolicbp; //mec... WHOA!!!
+          var mec = obv.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
+          p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
 
 
           ret.resolve(p);
