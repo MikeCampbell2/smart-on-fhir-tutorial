@@ -76,15 +76,17 @@
 
 
           //mec...hmmm...
-          $.when(patient.api.search({type: "Observation", query: {code: '8302-2'}, count: 50}))
-              .done(function (obsSearchResults) {
-                obsSearchResults.data.entry.forEach(function (obs) {
+//          $.when(patient.api.search({type: "Observation", query: {code: '8302-2'}, count: 50}))
+//              .done(function (obsSearchResults) {
+          alert('mec...here...1');
+                obv.data.entry.forEach(function (obs) {
                   var obsRow = "<tr><td>" + obs.resource.effectiveDateTime + "</td>" + "<td>" +
                       obs.resource.valueQuantity.value + obs.resource.valueQuantity.unit + "</td></tr>"
 //mec...                  $("#obsTable").append(obsRow);
                   alert('here... mec... with (' + obsRow +')');
                 });
-              });
+//              });
+          alert('mec...here...2');
 
 
           ret.resolve(p);
