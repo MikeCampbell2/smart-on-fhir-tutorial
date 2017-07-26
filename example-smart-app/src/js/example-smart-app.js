@@ -86,7 +86,7 @@
           type: 'Condition',
           query: {
             dateRecorded: {
-              $gt: 0
+              $or: ['2017-02-23', '2017-07-19']
             }
           }
         });
