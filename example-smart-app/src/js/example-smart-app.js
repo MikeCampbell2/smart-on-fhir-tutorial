@@ -89,8 +89,8 @@
           }
         });
 
-        p.conddaterecorded = 'mec...junk';
-        p.contcategory = 'mec...junk2';
+        p.conddaterecorded = 'mec...junk3';
+        p.contcategory = 'mec...junk4';
 
         $.when(pt, cond).fail(onError);
 
