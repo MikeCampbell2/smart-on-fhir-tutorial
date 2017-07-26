@@ -81,6 +81,7 @@
 
 
         //VVV mec...yoyo...
+        alert('mec...before cool');
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           query: {
