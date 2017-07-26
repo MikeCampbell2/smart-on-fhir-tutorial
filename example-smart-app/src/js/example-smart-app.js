@@ -28,7 +28,7 @@
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
-          var day = dob.getDate();
+          var day = dob.getDay(); //mec...bug: .getDate();
           var monthIndex = dob.getMonth() + 1;
           var year = dob.getFullYear();
 
@@ -66,6 +66,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           alert('mec...here...('+ patient.id +',' + patient.name[0].family + ',' + patient.birthDate + ',' + patient.name[0].use +',' + patient.name[0].period.start + ',' + patient.careProvider[0].display + ')');
+          alert('mec...here...('+ obv.id + ')');
           var mec = 'bogus...';
           //var mec = obv.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
           p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
