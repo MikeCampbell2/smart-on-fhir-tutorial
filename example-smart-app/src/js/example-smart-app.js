@@ -12,6 +12,25 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+
+        alert('mec...here...A');
+        var cond = smart.patient.api.fetchAll({
+          type: 'Condition',
+          category: 'problem',
+          clinicalstatus: 'active'
+        });
+
+        $.when(pt, cond).fail(onError);
+
+        alert('mec...here...B');
+        $.when(pt, cond).done(function(patient, cond) {
+          var gender = patient.gender;
+          var dr = cond.dateRecorded;
+          alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
+        });
+        alert('mec...D');
+
+
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -93,33 +112,35 @@
           ret.resolve(p);
         });
 
-        //mec...hmmm...
-        alert('mec...111');
-        $.when(smart.patient.api.search({type: "Observation", query: {code: '8302-2'}, count: 50}))
-            .done(function (obsSearchResults) {
-              obsSearchResults.data.entry.forEach(function (obs) {
-                var obsRow = "<tr><td>" + obs.resource.effectiveDateTime + "</td>" + "<td>" +
-                    obs.resource.valueQuantity.value + obs.resource.valueQuantity.unit + "</td></tr>"
-                //mec...$("#obsTable").append(obsRow);
-                alert('mec...(' + obsRow + ')')
-              });
-            });
-        alert('mec...here...3');
+        ////mec...hmmm...
+        //alert('mec...111');
+        //$.when(smart.patient.api.search({type: "Observation", query: {code: '8302-2'}, count: 50}))
+        //    .done(function (obsSearchResults) {
+        //      obsSearchResults.data.entry.forEach(function (obs) {
+        //        var obsRow = "<tr><td>" + obs.resource.effectiveDateTime + "</td>" + "<td>" +
+        //            obs.resource.valueQuantity.value + obs.resource.valueQuantity.unit + "</td></tr>"
+        //        //mec...$("#obsTable").append(obsRow);
+        //        alert('mec...(' + obsRow + ')')
+        //      });
+        //    });
 
-        var cond = smart.patient.api.fetchAll({
-          type: 'Condition',
-          category: 'problem',
-          clinicalstatus: 'active'
-        });
 
-        $.when(pt, cond).fail(onError);
-
-        alert('mec...here...4');
-        $.when(pt, cond).done(function(patient, cond) {
-          var gender = patient.gender;
-          var dr = cond.dateRecorded;
-          alert('mec...here...5 ('+ gender + ',' + dr + ',' + dr[0] + ')');
-        });
+        //alert('mec...here...A');
+        //var cond = smart.patient.api.fetchAll({
+        //  type: 'Condition',
+        //  category: 'problem',
+        //  clinicalstatus: 'active'
+        //});
+        //
+        //$.when(pt, cond).fail(onError);
+        //
+        //alert('mec...here...B');
+        //$.when(pt, cond).done(function(patient, cond) {
+        //  var gender = patient.gender;
+        //  var dr = cond.dateRecorded;
+        //  alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
+        //});
+        //alert('mec...D');
 
         ////VVV mec...yoyo...
         //alert('mec...before to cool');
