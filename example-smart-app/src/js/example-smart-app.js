@@ -78,7 +78,7 @@
           //mec...hmmm...
 //          $.when(patient.api.search({type: "Observation", query: {code: '8302-2'}, count: 50}))
 //              .done(function (obsSearchResults) {
-          alert('mec...here...1');
+          alert('mec...here...A');
                 obv.data.entry.forEach(function (obs) {
                   alert('mec...here...2');
                   var obsRow = "<tr><td>" + obs.effectiveDateTime + "</td>" + "<td>" +
