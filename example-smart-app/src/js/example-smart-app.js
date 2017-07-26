@@ -85,7 +85,7 @@
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           query: {
-            dateRecorded: {
+            code: {
               $or: ['2017-02-23', '2017-07-19']
             }
           }
