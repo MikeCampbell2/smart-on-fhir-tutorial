@@ -83,16 +83,16 @@
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           query: {
-            //dateRecorded: {
-            //  $or: ['2017-02-23', '2017-07-19']
-            //}
-            code: {
-              $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
-                    'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-                    'http://loinc.org|2089-1', 'http://loinc.org|55284-4'
-                //'2017-02-23', '2017-07-19'
-              ]
+            dateRecorded: {
+              $or: ['2017-02-23', '2017-07-19']
             }
+            //code: {
+            //  $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
+            //        'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
+            //        'http://loinc.org|2089-1', 'http://loinc.org|55284-4'
+            //    //'2017-02-23', '2017-07-19'
+            //  ]
+            //}
 
           }
         });
@@ -102,7 +102,7 @@
 
         $.when(pt, cond).fail(onError);
 
-        alert('mec...mid...to cool...');
+        alert('mec...mid...mid...to cool...');
 
         $.when(pt, cond).done(function(patient, cond) {
           alert('mec...to cool');
