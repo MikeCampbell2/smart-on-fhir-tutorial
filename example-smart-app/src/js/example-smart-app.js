@@ -80,98 +80,99 @@
 //              .done(function (obsSearchResults) {
           alert('mec...here...1');
                 obv.data.entry.forEach(function (obs) {
-                  var obsRow = "<tr><td>" + obs.resource.effectiveDateTime + "</td>" + "<td>" +
-                      obs.resource.valueQuantity.value + obs.resource.valueQuantity.unit + "</td></tr>"
+                  alert('mec...here...2');
+                  var obsRow = "<tr><td>" + obs.effectiveDateTime + "</td>" + "<td>" +
+                      obs.valueQuantity.value + obs.valueQuantity.unit + "</td></tr>"
 //mec...                  $("#obsTable").append(obsRow);
                   alert('here... mec... with (' + obsRow +')');
                 });
 //              });
-          alert('mec...here...2');
+          alert('mec...here...3');
 
 
           ret.resolve(p);
         });
 
 
-        //VVV mec...yoyo...
-        alert('mec...before to cool');
-        var cond = smart.patient.api.fetchAll({
-          type: 'Condition',
-          query: {
-            dateRecorded: {
-              $or: ['2017-02-23', '2017-07-19']
-            }
-            //code: {
-            //  $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
-            //        'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-            //        'http://loinc.org|2089-1', 'http://loinc.org|55284-4'
-            //    //'2017-02-23', '2017-07-19'
-            //  ]
-            //}
-
-          }
-        });
-
-        p.conddaterecorded = 'mec...junk3';
-        p.contcategory = 'mec...junk4';
-
-        $.when(pt, cond).fail(onError);
-
-        alert('mec...mid...mid...to cool...');
-
-        $.when(pt, cond).done(function(patient, cond) {
-          alert('mec...to cool');
-          //var byCodes = smart.byCodes(cond, 'code');
-          //var gender = patient.gender;
-          //var dob = new Date(patient.birthDate);
-          //var day = dob.getDate() + 1; //mec... bug off by 1 day (counts from 0 ???)
-          //var monthIndex = dob.getMonth() + 1;
-          //var year = dob.getFullYear();
-          //
-          //var dobStr = monthIndex + '/' + day + '/' + year;
-          //var fname = '';
-          //var lname = '';
-          //
-          //if (typeof patient.name[0] !== 'undefined') {
-          //  fname = patient.name[0].given.join(' ');
-          //  lname = patient.name[0].family.join(' ');
-          //}
-          //
-          //var height = byCodes('8302-2');
-          //var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-          //var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-          //var hdl = byCodes('2085-9');
-          //var ldl = byCodes('2089-1');
-          //
-          //var p = defaultPatient();
-          //p.birthdate = dobStr;
-          //p.gender = gender;
-          //p.fname = fname;
-          //p.lname = lname;
-          //p.age = parseInt(calculateAge(dob));
-          //p.height = getQuantityValueAndUnit(height[0]);
-          //
-          //if (typeof systolicbp != 'undefined')  {
-          //  p.systolicbp = systolicbp;
-          //}
-          //
-          //if (typeof diastolicbp != 'undefined') {
-          //  p.diastolicbp = diastolicbp;
-          //}
-          //
-          //p.hdl = getQuantityValueAndUnit(hdl[0]);
-          //p.ldl = getQuantityValueAndUnit(ldl[0]);
-          //alert('mec...here...('+ patient.id +',' + patient.name[0].family + ',' + patient.birthDate + ',' + patient.name[0].use +',' + patient.name[0].period.start + ',' + patient.careProvider[0].display + ')');
-          ////var byMec = smart.byCodes(cond, 'effectiveDateTime');
-          //var mmm = height[0].effectiveDateTime;
-          //
-          //alert('mec...here...mmm...('+ mmm + ')');
-          //var mec = 'bogus...';
-          ////var mec = cond.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
-          //p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
-
-          ret.resolve(p);
-        });
+        ////VVV mec...yoyo...
+        //alert('mec...before to cool');
+        //var cond = smart.patient.api.fetchAll({
+        //  type: 'Condition',
+        //  query: {
+        //    dateRecorded: {
+        //      $or: ['2017-02-23', '2017-07-19']
+        //    }
+        //    //code: {
+        //    //  $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
+        //    //        'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
+        //    //        'http://loinc.org|2089-1', 'http://loinc.org|55284-4'
+        //    //    //'2017-02-23', '2017-07-19'
+        //    //  ]
+        //    //}
+        //
+        //  }
+        //});
+        //
+        //p.conddaterecorded = 'mec...junk3';
+        //p.contcategory = 'mec...junk4';
+        //
+        //$.when(pt, cond).fail(onError);
+        //
+        //alert('mec...mid...mid...to cool...');
+        //
+        //$.when(pt, cond).done(function(patient, cond) {
+        //  alert('mec...to cool');
+        //  //var byCodes = smart.byCodes(cond, 'code');
+        //  //var gender = patient.gender;
+        //  //var dob = new Date(patient.birthDate);
+        //  //var day = dob.getDate() + 1; //mec... bug off by 1 day (counts from 0 ???)
+        //  //var monthIndex = dob.getMonth() + 1;
+        //  //var year = dob.getFullYear();
+        //  //
+        //  //var dobStr = monthIndex + '/' + day + '/' + year;
+        //  //var fname = '';
+        //  //var lname = '';
+        //  //
+        //  //if (typeof patient.name[0] !== 'undefined') {
+        //  //  fname = patient.name[0].given.join(' ');
+        //  //  lname = patient.name[0].family.join(' ');
+        //  //}
+        //  //
+        //  //var height = byCodes('8302-2');
+        //  //var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
+        //  //var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
+        //  //var hdl = byCodes('2085-9');
+        //  //var ldl = byCodes('2089-1');
+        //  //
+        //  //var p = defaultPatient();
+        //  //p.birthdate = dobStr;
+        //  //p.gender = gender;
+        //  //p.fname = fname;
+        //  //p.lname = lname;
+        //  //p.age = parseInt(calculateAge(dob));
+        //  //p.height = getQuantityValueAndUnit(height[0]);
+        //  //
+        //  //if (typeof systolicbp != 'undefined')  {
+        //  //  p.systolicbp = systolicbp;
+        //  //}
+        //  //
+        //  //if (typeof diastolicbp != 'undefined') {
+        //  //  p.diastolicbp = diastolicbp;
+        //  //}
+        //  //
+        //  //p.hdl = getQuantityValueAndUnit(hdl[0]);
+        //  //p.ldl = getQuantityValueAndUnit(ldl[0]);
+        //  //alert('mec...here...('+ patient.id +',' + patient.name[0].family + ',' + patient.birthDate + ',' + patient.name[0].use +',' + patient.name[0].period.start + ',' + patient.careProvider[0].display + ')');
+        //  ////var byMec = smart.byCodes(cond, 'effectiveDateTime');
+        //  //var mmm = height[0].effectiveDateTime;
+        //  //
+        //  //alert('mec...here...mmm...('+ mmm + ')');
+        //  //var mec = 'bogus...';
+        //  ////var mec = cond.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
+        //  //p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
+        //
+        //  ret.resolve(p);
+        //});
 
 
         //^^^ mec...yoyo...
