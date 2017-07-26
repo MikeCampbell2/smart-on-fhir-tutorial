@@ -74,6 +74,10 @@
           //var mec = obv.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
           p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
 
+          //mec...yoyo...
+          p.conddaterecorded = 'mec...junk';
+          p.contcategory = 'mec...junk2';
+
 
           ret.resolve(p);
         });
@@ -99,6 +103,10 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+
+      //mec...yoyo...
+      conddaterecorded: {value: ''},
+      contcategory: {value: ''},
     };
   }
 
@@ -164,6 +172,10 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+
+    //mec...yoyo...
+    $('#conddaterecorded').html(p.conddaterecorded);
+    $('#contcategory').html(p.contcategory);
   };
 
 })(window);
