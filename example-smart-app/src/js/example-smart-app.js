@@ -116,7 +116,9 @@
 
         alert('mec...here...4');
         $.when(pt, cond).done(function(patient, cond) {
-          alert('mec...here...5');
+          var gender = patient.gender;
+          var dr = cond.dateRecorded;
+          alert('mec...here...5 ('+ gender + ',' + dr + ',' + dr[0] + ')');
         });
 
         ////VVV mec...yoyo...
