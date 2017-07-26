@@ -65,7 +65,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          alert('mec...here...(' + patient.name[0].family + ',' + patient.name.use + ')');
+          alert('mec...here...(' + patient.name[0].family + ',' + patient.name[0].use +',' + patient.name[0].period.start + ')');
           var mec = 'bogus...';
           //var mec = obv.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
           p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
