@@ -4,7 +4,7 @@
 
     function onError() {
       console.log('Loading error', arguments);
-      alert('Loading Error: ' + arguments);
+      //mec...hmmm...alert('Loading Error: ' + arguments);
       ret.reject();
     }
 
@@ -81,7 +81,7 @@
 
 
         //VVV mec...yoyo...
-        alert('mec...before cool');
+        alert('mec...before to cool');
         var cond = smart.patient.api.fetchAll({
           type: 'Observation',
           query: {
@@ -105,7 +105,7 @@
         $.when(pt, cond).fail(onError);
 
         $.when(pt, cond).done(function(patient, cond) {
-          alert('mec...cool');
+          alert('mec...to cool');
           //var byCodes = smart.byCodes(cond, 'code');
           //var gender = patient.gender;
           //var dob = new Date(patient.birthDate);
