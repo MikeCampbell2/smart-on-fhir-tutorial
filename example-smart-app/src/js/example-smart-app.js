@@ -69,7 +69,7 @@
           //var byMec = smart.byCodes(obv, 'effectiveDateTime');
           var mmm = byCodes('effectiveDateTime');
 
-          alert('mec...here...vit...('+ mmm[0] + ',' + obv.fname + ')');
+          alert('mec...here...mmm...('+ mmm[0] + ',' + obv.fname + ')');
           var mec = 'bogus...';
           //var mec = obv.getAttribute('status'); //mec... smart.getDate(); //mec...whoa...
           p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
