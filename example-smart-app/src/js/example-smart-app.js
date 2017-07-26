@@ -25,10 +25,11 @@
         alert('mec...here...B');
         $.when(pt, cond).done(function(patient, cond) {
           var gender = patient.gender;
-          var dr = cond.dateRecorded;
-          alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
+          //var dr = cond.dateRecorded;
+          //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
+          alert('mec...here...CCC');
         });
-        alert('mec...D');
+        alert('mec...DDD');
 
 
         var obv = smart.patient.api.fetchAll({
