@@ -109,7 +109,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          alert('mec...here...CCC');
+          //alert('mec...here...CCC');
 
           var outputString = '';
           var effDate = '';
@@ -129,7 +129,8 @@
           if ((typeof patient.careProvider != 'undefined') &&(typeof patient.careProvider[0] != 'undefined') && (typeof patient.careProvider[0].display != 'undefined')) {
             outputString += (' CARE PROVIDER (' + patient.careProvider[0].display + ')');
           }
-          alert('mec...:' + outputString);
+          //alert('mec...:' + outputString);
+          console.log('Patient info: ', outputString);
 
           //var mec = 'bogus...';
           p.ldl = diastolicbp;
