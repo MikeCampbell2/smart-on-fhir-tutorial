@@ -109,12 +109,12 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          alert('mec...here...CCC');
+          alert('mec...here...ccc');
 
           var effDate = 'mec...';
-          if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
-            effDate = height[0].effectiveDateTime;
-          }
+          //if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
+          //  effDate = height[0].effectiveDateTime;
+          //}
 
           if ((typeof patient.name[0].use != 'undefined') && (typeof patient.name[0].period != 'undefined') && (typeof patient.name[0].period.start != 'undefined') && (typeof patient.careProvider[0] != 'undefined') && (typeof patient.careProvider[0].display != 'undefined')) {
             alert('mec...here...(' + patient.id + ',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use + ',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + effDate + ')');
