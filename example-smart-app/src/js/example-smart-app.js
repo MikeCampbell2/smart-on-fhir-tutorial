@@ -116,7 +116,8 @@
           //  mmm = height[0].effectiveDateTime;
           //}
 
-          alert('mec...here...('+ patient.id +',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use +',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + mmm  + ')' );
+          //alert('mec...here...('+ patient.id +',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use +',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + mmm  + ')' );
+          alert('mec...here...DDD');
 
           //var mec = 'bogus...';
           p.ldl = diastolicbp;
