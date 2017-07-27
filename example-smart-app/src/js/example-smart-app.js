@@ -42,7 +42,7 @@
             var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.code.text + "</td></tr>"
             $("#cndTable").append(cndRow);
             //alert('mec...FFF... ('+ cndRow + ')');
-            if (cnd.dateRecorded = '2016-06-27') {
+            if (cnd.dateRecorded == '2016-06-27') {
               alert('mec...foundit (' + cnd.dateRecorded + ')');
 
               cnd.code.text = cnd.code.text + '1';
