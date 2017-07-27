@@ -111,25 +111,25 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           alert('mec...here...CCC');
 
-          var effDate = 'mec...';
+          var outputString = '';
+          var effDate = '';
           if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
             effDate = height[0].effectiveDateTime;
           }
 
-          alert('mec...here...(' + patient.id + ',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + effDate + ')');
+
+          outputString = ('(' + patient.id + ',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + effDate + ')');
 
           if ((typeof patient.name[0].use != 'undefined')) {
-            alert('mec...here...USE (' + patient.name[0].use + ')');
+            outputString += (' USE (' + patient.name[0].use + ')');
           }
           if ((typeof patient.name[0].period != 'undefined') && (typeof patient.name[0].period.start != 'undefined')) {
-            alert('mec...here...PERIOD (' + patient.name[0].period.start + ')');
+            outputString += (' PERIOD (' + patient.name[0].period.start + ')');
           }
           if ((typeof patient.careProvider != 'undefined') &&(typeof patient.careProvider[0] != 'undefined') && (typeof patient.careProvider[0].display != 'undefined')) {
-            alert('mec...here... CARE PROVIDER (' + patient.careProvider[0].display + ')');
+            outputString += (' CARE PROVIDER (' + patient.careProvider[0].display + ')');
           }
-          //else {
-          //  alert('mec...here...Have some missing fields for patient (' + patient.name[0].given + ')');
-          //}
+          alert('mec...:' + outputString);
 
           //var mec = 'bogus...';
           p.ldl = diastolicbp;
