@@ -25,6 +25,8 @@
 
         $.when(pt, cond).fail(onError);
 
+doit(); //mec...hmmm
+
         //alert('mec...here...BBB');
         $.when(pt, cond).done(function(patient, cond) {
           $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
@@ -42,20 +44,22 @@
             var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.code.text + "</td></tr>"
             $("#cndTable").append(cndRow);
             //alert('mec...FFF... ('+ cndRow + ')');
-            if (cnd.dateRecorded == '2016-06-27') {
-              alert('mec...foundit (' + cnd.dateRecorded + ')');
 
-              cnd.code.text = cnd.code.text + '1';
-              smart.patient.api.update({type: cnd.resourceType, data: JSON.stringify(cnd), id: cnd.id}).then(function(){
-                alert('mec...cool it worked (' + cmd.code.text + ')');
-              });
-
-              //patient.name[0].family[0] = "NewName";
-              //fhirClient.api.update({type: patient.resourceType, data: JSON.stringify(patient), id: patient.id}).then(function(){
-              //  readPatient()
-              //});
-
-            }
+            //mec...yoyo...???
+            //if (cnd.dateRecorded == '2016-06-27') {
+            //  alert('mec...foundit (' + cnd.dateRecorded + ')');
+            //
+            //  cnd.code.text = cnd.code.text + '1';
+            //  smart.patient.api.update({type: cnd.resourceType, data: JSON.stringify(cnd), id: cnd.id}).then(function(){
+            //    alert('mec...cool it worked (' + cmd.code.text + ')');
+            //  });
+            //
+            //  //patient.name[0].family[0] = "NewName";
+            //  //fhirClient.api.update({type: patient.resourceType, data: JSON.stringify(patient), id: patient.id}).then(function(){
+            //  //  readPatient()
+            //  //});
+            //
+            //}
           });
 
         });
@@ -163,6 +167,70 @@
     return ret.promise();
 
   };
+
+  function doit() {
+    //"use strict";
+
+    alert('in doit');
+
+    //var resource = {
+    //  "resourceType": "Patient",
+    //  "text": {
+    //    "status": "generated",
+    //    "div": "<div><p>Test Patient</p></div>"
+    //  },
+    //  "identifier": [
+    //    {
+    //      "use": "usual",
+    //      "type": {
+    //        "coding": [
+    //          {
+    //            "system": "http://hl7.org/fhir/v2/0203",
+    //            "code": "MR",
+    //            "display": "Medical record number"
+    //          }
+    //        ],
+    //        "text": "Medical record number"
+    //      },
+    //      "system": "http://hospital.smarthealthit.org",
+    //      "value": "12345"
+    //    }
+    //  ],
+    //  "active": false,
+    //  "name": [
+    //    {
+    //      "use": "official",
+    //      "family": [
+    //        "Patient"
+    //      ],
+    //      "given": [
+    //        "Test"
+    //      ]
+    //    }
+    //  ],
+    //  "gender": "female",
+    //  "birthDate": "2007-03-20",
+    //};
+    //
+    //// Create the patient and then update its active flag to "true"
+    //smart.api.create({resource: resource}).done(function (r) {
+    //
+    //  // NOTE that the patient will now have new "id" assigned by the
+    //  // server. The next request will be PUT (update) and that id will
+    //  // be required...
+    //  var patient = r.data;
+    //  patient["active"] = true;
+    //  smart.api.update({resource: patient}).done(function (r) {
+    //    var out = JSON.stringify(r.data, null, "   ");
+    //    document.getElementsByTagName("pre")[0].innerText = "Now " +
+    //        "we have the following patient in the FHIR server:\n\n" +
+    //        out;
+    //  });
+    //});
+
+
+  };
+
 
   function defaultPatient(){
     return {
