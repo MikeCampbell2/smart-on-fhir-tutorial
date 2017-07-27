@@ -13,7 +13,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        alert('mec...here...AAA');
+        //alert('mec...here...AAA');
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
@@ -23,16 +23,16 @@
 
         $.when(pt, cond).fail(onError);
 
-        alert('mec...here...BBB');
+        //alert('mec...here...BBB');
         $.when(pt, cond).done(function(patient, cond) {
           $("#patientName").text(patient.name[0].given); //mec...fix...
           var gender = patient.gender;
           //var dr = cond.dateRecorded;
           //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
-          alert('mec...here...CCC (' + gender +')');
-          alert('mec...here...ddd len (' + cond.length + ')');
+          //alert('mec...here...CCC (' + gender +')');
+          //alert('mec...here...ddd len (' + cond.length + ')');
 
-          alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
+          //alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
 
           cond.forEach(function (cnd) {
             //var cndRow = cnd.dateRecorded;
@@ -43,7 +43,7 @@
           });
 
         });
-        alert('mec...GGG');
+        //alert('mec...GGG');
 
 
         var obv = smart.patient.api.fetchAll({
