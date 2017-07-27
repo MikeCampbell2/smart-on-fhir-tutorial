@@ -21,6 +21,7 @@
           clinicalstatus: 'resolved'
           // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
         });
+        alert('mec...here...111');
 
         $.when(pt, cond).fail(onError);
 
@@ -33,6 +34,7 @@
           //alert('mec...here...ddd len (' + cond.length + ')');
 
           //alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
+          alert('mec...here...222');
 
           cond.forEach(function (cnd) {
             //var cndRow = cnd.dateRecorded;
@@ -44,6 +46,7 @@
 
         });
         //alert('mec...GGG');
+        alert('mec...here...333');
 
 
         var obv = smart.patient.api.fetchAll({
@@ -57,10 +60,12 @@
                     }
                   });
 
+        alert('mec...here...444');
 
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
+          alert('mec...here...555');
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
@@ -82,6 +87,7 @@
           var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
+          alert('mec...here...666');
 
           var p = defaultPatient();
           p.birthdate = dobStr;
@@ -110,11 +116,13 @@
 
           ret.resolve(p);
         });
+        alert('mec...here...777');
 
       } else {
         onError();
       }
     }
+    alert('mec...here...888');
 
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
