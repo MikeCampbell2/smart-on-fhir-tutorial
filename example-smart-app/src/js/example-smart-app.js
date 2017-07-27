@@ -109,10 +109,10 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          alert('mec...here...CCC');
+          alert('mec...here...ccc');
 
           var mmm = 'mec...';
-          if (typeof height[0] != 'undefined') {
+          if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
             mmm = height[0].effectiveDateTime;
           }
 
