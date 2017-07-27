@@ -13,17 +13,19 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        alert('mec...here...aaa');
+        alert('mec...here...AAA');
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
-          clinicalstatus: 'active'
+          clinicalstatus: 'active',
+          count: 5 // mec... doesn't work???
         });
 
         $.when(pt, cond).fail(onError);
 
-        alert('mec...here...B');
-        $.when(pt, cond, count = 5).done(function(patient, cond) {
+        alert('mec...here...BBB');
+        $.when(pt, cond).done(function(patient, cond) {
+          $("#patientName").text(patient.name[0].given); //mec...fix...
           var gender = patient.gender;
           //var dr = cond.dateRecorded;
           //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
@@ -36,7 +38,7 @@
             //var cndRow = cnd.dateRecorded;
             //alert('mec...eee... ('+ cndRow + ')');
             var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.code.text + "</td></tr>"
-            //$("#cndTable").append(cndRow);
+            $("#cndTable").append(cndRow);
             alert('mec...FFF... ('+ cndRow + ')');
           });
 
