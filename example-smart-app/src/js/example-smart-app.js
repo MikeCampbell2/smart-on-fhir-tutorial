@@ -33,15 +33,15 @@
           alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
 
           cond.forEach(function (cnd) {
-            var cndRow = cnd.dateRecorded;
-            alert('mec...eee... ('+ cndRow + ')');
-            //var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" +
-            //    cnd.resource.valueQuantity.value + cnd.resource.valueQuantity.unit + "</td></tr>"
-            //$("#obsTable").append(cndRow);
+            //var cndRow = cnd.dateRecorded;
+            //alert('mec...eee... ('+ cndRow + ')');
+            var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.code.text + "</td></tr>"
+            //$("#cndTable").append(cndRow);
+            alert('mec...FFF... ('+ cndRow + ')');
           });
 
         });
-        alert('mec...FFF');
+        alert('mec...GGG');
 
 
         var obv = smart.patient.api.fetchAll({
