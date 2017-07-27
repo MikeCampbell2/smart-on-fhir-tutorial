@@ -229,7 +229,7 @@ doit(); //mec...hmmm
       // be required...
       var patient = r.data;
       patient["active"] = true;
-      smart.api.update({resource: patient}).done(function (r) {
+      smart.patient.api.update({resource: patient}).done(function (r) {
         var out = JSON.stringify(r.data, null, "   ");
         document.getElementsByTagName("pre")[0].innerText = "Now " +
             "we have the following patient in the FHIR server:\n\n" +
