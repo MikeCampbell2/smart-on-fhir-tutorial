@@ -124,7 +124,7 @@
           if ((typeof patient.name[0].period != 'undefined') && (typeof patient.name[0].period.start != 'undefined')) {
             alert('mec...here...PERIOD (' + patient.name[0].period.start + ')');
           }
-          if ((typeof patient.careProvider[0] != 'undefined') && (typeof patient.careProvider[0].display != 'undefined')) {
+          if ((typeof patient.careProvider != 'undefined') &&(typeof patient.careProvider[0] != 'undefined') && (typeof patient.careProvider[0].display != 'undefined')) {
             alert('mec...here... CARE PROVIDER (' + patient.careProvider[0].display + ')');
           }
           //else {
