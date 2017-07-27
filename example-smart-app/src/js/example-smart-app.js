@@ -13,7 +13,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        alert('mec...here...TOP');
+        //alert('mec...here...TOP');
 
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
@@ -21,7 +21,7 @@
           clinicalstatus: 'resolved'
           // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
         });
-        alert('mec...here...111');
+        //alert('mec...here...111');
 
         $.when(pt, cond).fail(onError);
 
@@ -34,7 +34,7 @@
           //alert('mec...here...ddd len (' + cond.length + ')');
 
           //alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
-          alert('mec...here...222');
+          //alert('mec...here...222');
 
           cond.forEach(function (cnd) {
             //var cndRow = cnd.dateRecorded;
@@ -46,7 +46,7 @@
 
         });
         //alert('mec...GGG');
-        alert('mec...here...333');
+        //alert('mec...here...333');
 
 
         var obv = smart.patient.api.fetchAll({
@@ -60,12 +60,12 @@
                     }
                   });
 
-        alert('mec...here...444');
+        //alert('mec...here...444');
 
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
-          alert('mec...here...555');
+          //alert('mec...here...555');
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
@@ -87,7 +87,7 @@
           var diastolicbp = getBloodPressureValue(byCodes('55284-4'), '8462-4');
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
-          alert('mec...here...666');
+          //alert('mec...here...666');
 
           var p = defaultPatient();
           p.birthdate = dobStr;
@@ -96,7 +96,7 @@
           p.lname = lname;
           p.age = parseInt(calculateAge(dob));
           p.height = getQuantityValueAndUnit(height[0]);
-          alert('mec...here...AAA');
+          //alert('mec...here...AAA');
 
           if (typeof systolicbp != 'undefined') {
             p.systolicbp = systolicbp;
@@ -105,32 +105,36 @@
           if (typeof diastolicbp != 'undefined') {
             p.diastolicbp = diastolicbp;
           }
-          alert('mec...here...BBB');
+          //alert('mec...here...BBB');
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           alert('mec...here...CCC');
 
-          var mmm = 'mec...';
-          //if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
-          //  mmm = height[0].effectiveDateTime;
-          //}
+          var effDate = 'mec...';
+          if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
+            effDate = height[0].effectiveDateTime;
+          }
 
-          //alert('mec...here...('+ patient.id +',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use +',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + mmm  + ')' );
-          alert('mec...here...DDD');
+          if ((typeof patient.name[0].use != 'undefined') && (typeof patient.name[0].period != 'undefined') && (typeof patient.name[0].period.start != 'undefined') && (typeof patient.careProvider[0] != 'undefined') && (typeof patient.careProvider[0].display != 'undefined')) {
+            alert('mec...here...(' + patient.id + ',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use + ',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + effDate + ')');
+          }
+          else {
+            alert('mec...here...Have some missing fields for patient (' + patient.name[0].given + ')');
+          }
 
           //var mec = 'bogus...';
           p.ldl = diastolicbp;
 
           ret.resolve(p);
         });
-        alert('mec...here...777');
+        //alert('mec...here...777');
 
       } else {
         onError();
       }
     }
-    alert('mec...here...888');
+    //alert('mec...here...888');
 
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
