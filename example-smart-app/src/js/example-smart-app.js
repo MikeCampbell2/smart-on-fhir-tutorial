@@ -83,8 +83,8 @@
           }
 
           var height = byCodes('8302-2');
-          var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-          var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
+          var systolicbp = getBloodPressureValue(byCodes('55284-4'), '8480-6');
+          var diastolicbp = getBloodPressureValue(byCodes('55284-4'), '8462-4');
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
           alert('mec...here...666');
@@ -98,7 +98,7 @@
           p.height = getQuantityValueAndUnit(height[0]);
           alert('mec...here...AAA');
 
-          if (typeof systolicbp != 'undefined')  {
+          if (typeof systolicbp != 'undefined') {
             p.systolicbp = systolicbp;
           }
 
@@ -111,7 +111,11 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           alert('mec...here...CCC');
 
-          var mmm = height[0].effectiveDateTime;
+          var mmm = 'mec...';
+          if (typeof height[0] != 'undefined') {
+            mmm = height[0].effectiveDateTime;
+          }
+
           alert('mec...here...('+ patient.id +',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use +',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + mmm  + ')' );
 
           //var mec = 'bogus...';
