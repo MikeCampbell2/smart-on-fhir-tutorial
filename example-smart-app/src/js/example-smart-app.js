@@ -109,19 +109,27 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          alert('mec...here...ccc');
+          alert('mec...here...CCC');
 
           var effDate = 'mec...';
-          //if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
-          //  effDate = height[0].effectiveDateTime;
-          //}
+          if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
+            effDate = height[0].effectiveDateTime;
+          }
 
-          if ((typeof patient.name[0].use != 'undefined') && (typeof patient.name[0].period != 'undefined') && (typeof patient.name[0].period.start != 'undefined') && (typeof patient.careProvider[0] != 'undefined') && (typeof patient.careProvider[0].display != 'undefined')) {
-            alert('mec...here...(' + patient.id + ',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use + ',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + effDate + ')');
+          alert('mec...here...(' + patient.id + ',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + effDate + ')');
+
+          if ((typeof patient.name[0].use != 'undefined')) {
+            alert('mec...here...USE (' + patient.name[0].use + ')');
           }
-          else {
-            alert('mec...here...Have some missing fields for patient (' + patient.name[0].given + ')');
+          if ((typeof patient.name[0].period != 'undefined') && (typeof patient.name[0].period.start != 'undefined')) {
+            alert('mec...here...PERIOD (' + patient.name[0].period.start + ')');
           }
+          if ((typeof patient.careProvider[0] != 'undefined') && (typeof patient.careProvider[0].display != 'undefined')) {
+            alert('mec...here... CARE PROVIDER (' + patient.careProvider[0].display + ')');
+          }
+          //else {
+          //  alert('mec...here...Have some missing fields for patient (' + patient.name[0].given + ')');
+          //}
 
           //var mec = 'bogus...';
           p.ldl = diastolicbp;
