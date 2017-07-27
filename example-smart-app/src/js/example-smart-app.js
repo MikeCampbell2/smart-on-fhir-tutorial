@@ -28,8 +28,8 @@
           //var dr = cond.dateRecorded;
           //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
           alert('mec...here...CCC (' + gender +')');
-          alert('mec...here...DDD len (' + cond.length + ')');
-          alert('mec...here...EEE len (' + cond.length + ',' + cont[0].dateRecorded + ')');
+          alert('mec...here...ddd len (' + cond.length + ')');
+          alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
 
         });
         alert('mec...FFF');
