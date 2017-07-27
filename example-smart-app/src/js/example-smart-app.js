@@ -192,8 +192,8 @@ doit(); //mec...hmmm
             ],
             "text": "Medical record number"
           },
-          "system": "http://hospital.smarthealthit.org",
-          "value": "12345"
+          //"system": "http://hospital.smarthealthit.org",
+          //"value": "12345"
 
           "system": "urn:oid:1.1.1.1.1.1",
           "value": "12344321",
