@@ -13,7 +13,8 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        //alert('mec...here...AAA');
+        alert('mec...here...TOP');
+
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
@@ -100,12 +101,12 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          alert('mec...here...('+ patient.id +',' + patient.name[0].family + ',' + patient.birthDate + ',' + patient.name[0].use +',' + patient.name[0].period.start + ',' + patient.careProvider[0].display + ')');
-          var mmm = height[0].effectiveDateTime;
 
-          alert('mec...here...mmm...('+ mmm + ')');
-          var mec = 'bogus...';
-          p.ldl = mec; //mec... diastolicbp; //mec... WHOA!!!
+          var mmm = height[0].effectiveDateTime;
+          alert('mec...here...('+ patient.id +',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use +',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + mmm  + ')' );
+
+          //var mec = 'bogus...';
+          p.ldl = diastolicbp;
 
           ret.resolve(p);
         });
