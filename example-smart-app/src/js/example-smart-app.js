@@ -14,11 +14,11 @@
         var pt = patient.read();
 
         //alert('mec...here...AAA');
-        var cond = smart.patient.api.search({
+        var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
           clinicalstatus: 'resolved',
-          count: 5 // mec... doesn't work???
+          count: 50 // mec... doesn't work???
         });
 
         $.when(pt, cond).fail(onError);
