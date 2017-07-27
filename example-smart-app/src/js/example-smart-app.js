@@ -17,16 +17,15 @@
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
-          clinicalstatus: 'resolved',
-          count: 50 // mec... doesn't work???
+          clinicalstatus: 'resolved'
+          // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
         });
 
         $.when(pt, cond).fail(onError);
 
         //alert('mec...here...BBB');
         $.when(pt, cond).done(function(patient, cond) {
-          $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' - ' + 'Conditions'); //mec...fix...
-          var gender = patient.gender;
+          $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
           //var dr = cond.dateRecorded;
           //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
           //alert('mec...here...CCC (' + gender +')');
