@@ -29,7 +29,16 @@
           //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
           alert('mec...here...CCC (' + gender +')');
           alert('mec...here...ddd len (' + cond.length + ')');
+
           alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
+
+          cond.forEach(function (cnd) {
+            var cndRow = cnd.dateRecorded;
+            alert('mec...eee... ('+ cndRow + ')');
+            //var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" +
+            //    cnd.resource.valueQuantity.value + cnd.resource.valueQuantity.unit + "</td></tr>"
+            //$("#obsTable").append(cndRow);
+          });
 
         });
         alert('mec...FFF');
