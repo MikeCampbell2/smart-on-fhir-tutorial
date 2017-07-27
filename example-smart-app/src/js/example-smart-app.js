@@ -17,14 +17,13 @@
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
-          clinicalstatus: 'active',
-          count: 5
+          clinicalstatus: 'active'
         });
 
         $.when(pt, cond).fail(onError);
 
         alert('mec...here...B');
-        $.when(pt, cond).done(function(patient, cond) {
+        $.when(pt, cond, count = 5).done(function(patient, cond) {
           var gender = patient.gender;
           //var dr = cond.dateRecorded;
           //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
