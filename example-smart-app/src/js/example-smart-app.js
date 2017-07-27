@@ -42,6 +42,20 @@
             var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.code.text + "</td></tr>"
             $("#cndTable").append(cndRow);
             //alert('mec...FFF... ('+ cndRow + ')');
+            if (cnd.dateRecorded = '2016-06-27') {
+              alert('mec...foundit (' + cnd.dateRecorded + ')');
+
+              cnd.code.text = cnd.code.text + '1';
+              smart.patient.api.update({type: cnd.resourceType, data: JSON.stringify(cnd), id: cnd.id}).then(function(){
+                alert('mec...cool it worked (' + cmd.code.text + ')');
+              });
+
+              //patient.name[0].family[0] = "NewName";
+              //fhirClient.api.update({type: patient.resourceType, data: JSON.stringify(patient), id: patient.id}).then(function(){
+              //  readPatient()
+              //});
+
+            }
           });
 
         });
