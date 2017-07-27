@@ -109,12 +109,12 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          alert('mec...here...ccc');
+          alert('mec...here...CCC');
 
           var mmm = 'mec...';
-          if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
-            mmm = height[0].effectiveDateTime;
-          }
+          //if ((typeof height[0] != 'undefined') && (typeof height[0].effectiveDateTime != 'undefined') ) {
+          //  mmm = height[0].effectiveDateTime;
+          //}
 
           alert('mec...here...('+ patient.id +',   ' + patient.name[0].family + ',   ' + patient.birthDate + ',   ' + patient.name[0].use +',   ' + patient.name[0].period.start + ',   ' + patient.careProvider[0].display + ',   ' + mmm  + ')' );
 
