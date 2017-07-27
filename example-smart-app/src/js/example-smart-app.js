@@ -27,7 +27,7 @@
 
         //alert('mec...here...BBB');
         $.when(pt, cond).done(function(patient, cond) {
-          $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
+          $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
           //var dr = cond.dateRecorded;
           //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
           //alert('mec...here...CCC (' + gender +')');
