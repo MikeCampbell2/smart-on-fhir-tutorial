@@ -218,6 +218,8 @@ doit(); //mec...hmmm
       "birthDate": "2000-04-01",
     };
 
+    alert('mec...before of meat');
+
     // Create the patient and then update its active flag to "true"
     smart.api.create({resource: resource}).done(function (r) {
       alert('mec...top of meat');
