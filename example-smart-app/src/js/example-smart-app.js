@@ -17,7 +17,7 @@
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
-          clinicalstatus: 'active',
+          clinicalstatus: 'resolved',
           count: 5 // mec... doesn't work???
         });
 
