@@ -14,7 +14,7 @@
         var pt = patient.read();
 
         //alert('mec...here...AAA');
-        var cond = smart.patient.api.fetchAll({
+        var cond = smart.patient.api.search({
           type: 'Condition',
           category: 'problem',
           clinicalstatus: 'resolved',
