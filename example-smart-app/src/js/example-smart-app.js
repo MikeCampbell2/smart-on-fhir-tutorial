@@ -13,12 +13,12 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        alert('mec...here...aaa');
+        alert('mec...here...AAA');
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
           clinicalstatus: 'active',
-          count: '5'
+          count: 5
         });
 
         $.when(pt, cond).fail(onError);
