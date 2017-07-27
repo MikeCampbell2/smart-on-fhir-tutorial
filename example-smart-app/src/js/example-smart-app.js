@@ -13,7 +13,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        alert('mec...here...AAA');
+        alert('mec...here...aaa');
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
