@@ -174,7 +174,7 @@ doit(smart); //mec...hmmm
     //"use strict";
 
     //alert('in doit() - top top');
-    alert('mec...in doit TOP TOP smart has (' + smart.hasOwnProperty('patient') + ')');
+    alert('mec...in doit TOP smart has (' + smart.hasOwnProperty('patient') + ')');
 
 
     var resource = {
@@ -224,7 +224,7 @@ doit(smart); //mec...hmmm
       "birthDate": "2000-04-01",
     };
 
-    var resource2 = smart.api.create( {
+    var resource2 = smart.patient.api.create( {
       "resourceType": "Patient",
       "text": {
         "status": "generated",
