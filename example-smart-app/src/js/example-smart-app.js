@@ -171,7 +171,7 @@ doit(smart); //mec...hmmm
   function doit(smart) {
     //"use strict";
 
-    alert('in doit - TOP');
+    alert('in doit() - TOP');
 
     var resource = {
       "resourceType": "Patient",
@@ -192,14 +192,16 @@ doit(smart); //mec...hmmm
             ],
             "text": "Medical record number"
           },
-          //"system": "http://hospital.smarthealthit.org",
-          //"value": "12345"
 
-          "system": "urn:oid:1.1.1.1.1.1",
-          "value": "12345",
-          "period": {
-            "start": "2017-07-27T15:01:02.000Z"
-          }
+          "system": "http://hospital.smarthealthit.org",
+          "value": "12345"
+
+          //"system": "urn:oid:1.1.1.1.1.1",
+          //"value": "12345",
+          //"period": {
+          //  "start": "2017-07-27T15:01:02.000Z"
+          //}
+
         }
       ],
       "active": false,
