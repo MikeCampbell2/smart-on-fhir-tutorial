@@ -269,7 +269,9 @@ doit(smart); //mec...hmmm
 
     alert('mec...BEFORE BEFORE of meat');
 
-    $.when(resource2).fail(onError);
+    $.when(resource2).fail(function (r) {
+      alert('mec...FAIL...');
+    });
 
     $.when(resource2).done(function (r) {
       alert('mec...WHEWHOO...');
