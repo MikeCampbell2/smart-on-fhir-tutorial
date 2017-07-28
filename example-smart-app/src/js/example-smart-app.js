@@ -267,7 +267,7 @@ doit(smart); //mec...hmmm
       "birthDate": "2000-04-01",
     });
 
-    alert('mec...BEFORE BEFORE of meat');
+    alert('mec...BEFORE BEFORE of meat (' + smart.length + ')');
 
     $.when(resource2).fail(function (r) {
       alert('mec...FAIL fail...(' + r.length + ',' + r.recourceType + ')');
