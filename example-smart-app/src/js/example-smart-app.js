@@ -274,7 +274,7 @@ doit(smart); //mec...hmmm
     alert('mec...BEFORE BEFORE of meat (' + smart.length + ')');
 
     $.when(resource2).fail(function (r) {
-      alert('mec...FAIL fail...(' + r.length + ',' + r.recourceType + ')');
+      alert('mec...FAIL ...(' + r.identifier.value + ',' + r.recourceType + ')');
     });
 
     $.when(resource2).done(function (r) {
