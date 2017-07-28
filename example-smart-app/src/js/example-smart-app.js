@@ -66,6 +66,7 @@ doit(smart); //mec...hmmm
         //alert('mec...GGG');
         //alert('mec...here...333');
 
+        alert('mec...TOP TOP smart length (' + smart.length + ')');
 
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
