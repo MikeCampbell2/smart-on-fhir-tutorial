@@ -25,7 +25,7 @@
 
         $.when(pt, cond).fail(onError);
 
-doit(); //mec...hmmm
+doit(smart); //mec...hmmm
 
         //alert('mec...here...BBB');
         $.when(pt, cond).done(function(patient, cond) {
@@ -168,10 +168,10 @@ doit(); //mec...hmmm
 
   };
 
-  function doit() {
+  function doit(smart) {
     //"use strict";
 
-    alert('in doit - top');
+    alert('in doit - TOP');
 
     var resource = {
       "resourceType": "Patient",
@@ -218,30 +218,30 @@ doit(); //mec...hmmm
       "birthDate": "2000-04-01",
     };
 
-    //alert('mec...before of meat');
-    //
-    //// Create the patient and then update its active flag to "true"
-    //smart.patient.api.create({resource: resource}).done(function (r) {
-    //  alert('mec...top of meat');
-    //
-    //  // NOTE that the patient will now have new "id" assigned by the
-    //  // server. The next request will be PUT (update) and that id will
-    //  // be required...
-    //  var patient = r.data;
-    //  patient["active"] = true;
-    //  smart.patient.api.update({resource: patient}).done(function (r) {
-    //    var out = JSON.stringify(r.data, null, "   ");
-    //    alert('mec... (' + out + ')');
-    //    //document.getElementsByTagName("pre")[0].innerText = "Now " +
-    //    //    "we have the following patient in the FHIR server:\n\n" +
-    //    //    out;
-    //  });
-    //
-    //  alert('mec...bot of meat');
-    //
-    //});
+    alert('mec...before of meat');
 
-    alert('out doit - bot');
+    // Create the patient and then update its active flag to "true"
+    smart.patient.api.create({resource: resource}).done(function (r) {
+      alert('mec...top of meat');
+
+      // NOTE that the patient will now have new "id" assigned by the
+      // server. The next request will be PUT (update) and that id will
+      // be required...
+      var patient = r.data;
+      patient["active"] = true;
+      smart.patient.api.update({resource: patient}).done(function (r) {
+        var out = JSON.stringify(r.data, null, "   ");
+        alert('mec... (' + out + ')');
+        //document.getElementsByTagName("pre")[0].innerText = "Now " +
+        //    "we have the following patient in the FHIR server:\n\n" +
+        //    out;
+      });
+
+      alert('mec...bot of meat');
+
+    });
+
+    alert('out doit - bottom');
 
   };
 
