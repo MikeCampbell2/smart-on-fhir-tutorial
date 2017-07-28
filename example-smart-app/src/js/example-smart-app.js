@@ -271,10 +271,10 @@ doit(smart); //mec...hmmm
       "birthDate": "2000-04-01",
     });
 
-    alert('mec...BEFORE BEFORE of meat (' + smart.length + ')');
+    alert('mec...BEFORE meat (' + smart.length + ')');
 
     $.when(resource2).fail(function (r) {
-      alert('mec...FAIL ...(' + r == null + ',' + r.recourceType + ')');
+      alert('mec...FAIL ... r==null?(' + r == null + ')');
     });
 
     $.when(resource2).done(function (r) {
