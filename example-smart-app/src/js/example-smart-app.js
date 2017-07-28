@@ -220,7 +220,62 @@ doit(smart); //mec...hmmm
       "birthDate": "2000-04-01",
     };
 
-    alert('mec...BEFORE before of meat');
+    var resource2 = smart.api.create( {
+      "resourceType": "Patient",
+      "text": {
+        "status": "generated",
+        "div": "<div><p>Mycool Campcool</p></div>"
+      },
+      "identifier": [
+        {
+          "use": "usual",
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0203",
+                "code": "MR",
+                "display": "Medical record number"
+              }
+            ],
+            "text": "Medical record number"
+          },
+
+          "system": "http://hospital.smarthealthit.org",
+          "value": "12345"
+
+          //"system": "urn:oid:1.1.1.1.1.1",
+          //"value": "12345",
+          //"period": {
+          //  "start": "2017-07-27T15:01:02.000Z"
+          //}
+
+        }
+      ],
+      "active": false,
+      "name": [
+        {
+          "use": "official",
+          "family": [
+            "Campcool"
+          ],
+          "given": [
+            "Mycool"
+          ]
+        }
+      ],
+      "gender": "male",
+      "birthDate": "2000-04-01",
+    });
+
+    alert('mec...BEFORE BEFORE of meat');
+
+    $.when(resource2).fail(onError);
+
+    $.when(resource2).done(function (r) {
+      alert('mec...WHEWHOO...');
+    });
+
+    alert('mec...BEFORE of meat');
 
     // Create the patient and then update its active flag to "true"
     smart.api.create({resource: resource},cb,err).done(function (r) {
