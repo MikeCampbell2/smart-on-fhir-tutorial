@@ -25,6 +25,8 @@
 
         $.when(pt, cond).fail(onError);
 
+        alert('mec...TOP TOP smart has (' + smart.hasOwnProperty('patient') + ')');
+
 doit(smart); //mec...hmmm
 
         //alert('mec...here...BBB');
@@ -66,7 +68,6 @@ doit(smart); //mec...hmmm
         //alert('mec...GGG');
         //alert('mec...here...333');
 
-        alert('mec...TOP TOP smart length (' + smart.length + ')');
 
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -172,7 +173,9 @@ doit(smart); //mec...hmmm
   function doit(smart) {
     //"use strict";
 
-    alert('in doit() - top top');
+    //alert('in doit() - top top');
+    alert('mec...in doit TOP TOP smart has (' + smart.hasOwnProperty('patient') + ')');
+
 
     var resource = {
       "resourceType": "Patient",
