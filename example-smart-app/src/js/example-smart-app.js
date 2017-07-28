@@ -196,7 +196,7 @@ doit(); //mec...hmmm
           //"value": "12345"
 
           "system": "urn:oid:1.1.1.1.1.1",
-          "value": "12344321",
+          "value": "12345",
           "period": {
             "start": "2017-07-27T15:01:02.000Z"
           }
@@ -221,7 +221,7 @@ doit(); //mec...hmmm
     alert('mec...before of meat');
 
     // Create the patient and then update its active flag to "true"
-    smart.api.create({resource: resource}).done(function (r) {
+    smart.patient.api.create({resource: resource}).done(function (r) {
       alert('mec...top of meat');
 
       // NOTE that the patient will now have new "id" assigned by the
@@ -231,9 +231,10 @@ doit(); //mec...hmmm
       patient["active"] = true;
       smart.patient.api.update({resource: patient}).done(function (r) {
         var out = JSON.stringify(r.data, null, "   ");
-        document.getElementsByTagName("pre")[0].innerText = "Now " +
-            "we have the following patient in the FHIR server:\n\n" +
-            out;
+        alert('mec... (' + out + ')');
+        //document.getElementsByTagName("pre")[0].innerText = "Now " +
+        //    "we have the following patient in the FHIR server:\n\n" +
+        //    out;
       });
 
       alert('mec...bot of meat');
