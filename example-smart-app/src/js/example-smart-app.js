@@ -218,10 +218,10 @@ doit(smart); //mec...hmmm
       "birthDate": "2000-04-01",
     };
 
-    alert('mec...before of meat');
+    alert('mec...BEFORE of meat');
 
     // Create the patient and then update its active flag to "true"
-    smart.patient.api.create({resource: resource}).done(function (r) {
+    smart.api.create({resource: resource}).done(function (r) {
       alert('mec...top of meat');
 
       // NOTE that the patient will now have new "id" assigned by the
@@ -229,7 +229,7 @@ doit(smart); //mec...hmmm
       // be required...
       var patient = r.data;
       patient["active"] = true;
-      smart.patient.api.update({resource: patient}).done(function (r) {
+      smart.api.update({resource: patient}).done(function (r) {
         var out = JSON.stringify(r.data, null, "   ");
         alert('mec... (' + out + ')');
         //document.getElementsByTagName("pre")[0].innerText = "Now " +
