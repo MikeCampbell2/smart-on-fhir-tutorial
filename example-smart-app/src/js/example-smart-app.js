@@ -220,10 +220,10 @@ doit(smart); //mec...hmmm
       "birthDate": "2000-04-01",
     };
 
-    alert('mec...BEFORE of meat');
+    alert('mec...BEFORE before of meat');
 
     // Create the patient and then update its active flag to "true"
-    smart.api.create({resource: resource}).done(function (r) {
+    smart.api.create({resource: resource},cb,err).done(function (r) {
       alert('mec...top of meat');
 
       // NOTE that the patient will now have new "id" assigned by the
@@ -246,6 +246,13 @@ doit(smart); //mec...hmmm
     alert('out doit - bottom');
 
   };
+
+  function cb() {
+    alert('mec...cb');
+  }
+  function err() {
+    alert('mec...err');
+  }
 
 
   function defaultPatient(){
