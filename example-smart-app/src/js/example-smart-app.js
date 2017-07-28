@@ -171,7 +171,7 @@ doit(smart); //mec...hmmm
   function doit(smart) {
     //"use strict";
 
-    alert('in doit() - TOP');
+    alert('in doit() - TOP top');
 
     var resource = {
       "resourceType": "Patient",
