@@ -282,13 +282,13 @@
     $.when(pt, proc).done(function(patient, proc) {
       proc.forEach(function (prc) {
         var json = JSON.stringify(prc); //mec...(eval("(" + prc + ")"));
-        alert('mec...COOL WITH ('+ json +')');
+        alert('mec...COOL with ('+ json +')');
 
         var mmm = smart.patient.api.create({resource: json}); //mec...{resource: json},cb,err);
         $.when(pt, mmm).fail(
             function () {
-              console.log('Create Procedures error', JSON.stringify(mmm));
-              alert('Create Procedures Error: ' + JSON.stringify(mmm));
+              console.log('Create Procedures error ', mmm.performedDateTime);
+              alert('Create Procedures Error: (' + mmm.performedDateTime +')');
             }
         );
 
