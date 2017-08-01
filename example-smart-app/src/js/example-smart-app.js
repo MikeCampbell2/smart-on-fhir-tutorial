@@ -14,7 +14,7 @@
         var pt = patient.read();
 
         // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        getConditions(pt);
+        getConditions(smart, pt);
         //var cond = smart.patient.api.fetchAll({
         //  type: 'Condition',
         //  //category: 'problem',
@@ -156,9 +156,10 @@
 
   };
 
-  function getConditions(pt){
+  function getConditions(smart, pt){
     // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+    alert('mec...AAA');
     var cond = smart.patient.api.fetchAll({
       type: 'Condition',
       //category: 'problem',
