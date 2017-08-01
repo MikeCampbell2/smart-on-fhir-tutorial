@@ -38,7 +38,6 @@
           //alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
           //alert('mec...here...222');
 
-          alert('mec...here...Above c');
           cond.forEach(function (cnd) {
 
             var cndCode = '';
@@ -74,6 +73,7 @@
         //alert('mec...GGG');
         //alert('mec...here...333');
 
+        alert('mec...here...Above d');
 
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -91,9 +91,10 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
-          alert('mec...Observation length/text = (' + obv.length  + ',' + obv.code.text + ')' );
+          alert('mec...Observation length = (' + obv.length + ')' );
           //alert('mec...here...555');
           var byCodes = smart.byCodes(obv, 'code');
+          alert('mec...Observation text = (' + byCodes('text') + ')' );
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
           var day = dob.getDate() + 1; //mec... bug off by 1 day (counts from 0 ???)
