@@ -203,7 +203,8 @@
         var obsRow = "<tr><td>" + obs.effectiveDateTime + "</td>" + "<td>" + obsCode + "</td>" + "<td>" + obs.code.text + "</td></tr>";
         $("#obsTable").append(obsRow);
 
-        alert('mec...FFF... ('+ byCodes(obsCode) + ')');
+        var byCodes = smart.byCodes(obv, 'code');
+        alert('mec...GGG... ('+ byCodes(obsCode) + ')');
 
       });
 
