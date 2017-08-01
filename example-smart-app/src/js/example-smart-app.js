@@ -221,9 +221,9 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getProcedures(smart, pt){
-    //alert('mec...Procedures');
+    alert('mec...Procedures');
     var proc = smart.patient.api.fetchAll({
-      type: 'Procedure',
+      type: 'Procedure'
       //category: 'problem',
       //clinicalstatus: 'active' // 'resolved'
       // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
@@ -232,8 +232,8 @@
 
     $.when(pt, proc).fail(
         function () {
-          console.log('Loading error', arguments);
-          alert('Loading Error: ' + arguments);
+          console.log('Loading Procedures error', arguments);
+          alert('Loading Procedures Error: ' + arguments);
         }
     );
 
