@@ -13,7 +13,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        alert('mec...here...TOP TOP');
+        alert('mec...here...TOP');
 
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
@@ -43,7 +43,13 @@
           cond.forEach(function (cnd) {
             //var cndRow = cnd.dateRecorded;
             //alert('mec...eee... ('+ cndRow + ')');
-            var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.code.coding[0].code + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
+            var cndCode = 'n/a';
+            if ((typeof cnd.code != 'undefined') && (typeof cnd.code.coding != 'undefined') && (typeofcnd.code.coding[0] != 'undefined') && (typeof cnd.code.coding[0].code != 'undefined')) {
+              cndCode = cnd.code.coding[0].code;
+            }
+
+
+            var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cndCode + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
             $("#cndTable").append(cndRow);
             //alert('mec...FFF... ('+ cndRow + ')');
 
