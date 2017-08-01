@@ -15,8 +15,8 @@
 
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
-          category: 'problem',
-          clinicalstatus: 'active' // 'resolved'
+          //category: 'problem',
+          //clinicalstatus: 'active' // 'resolved'
           // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
         });
         //alert('mec...here...111');
@@ -73,7 +73,7 @@
         //alert('mec...GGG');
         //alert('mec...here...333');
 
-        alert('mec...here...Above d');
+        alert('mec...here...Above e');
 
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
