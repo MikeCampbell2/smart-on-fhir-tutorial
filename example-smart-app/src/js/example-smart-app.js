@@ -178,7 +178,7 @@
       }
     });
 
-    alert('mec...here...BBB');
+    alert('mec...here...CCC');
 
     $.when(pt, obsv).fail(
         function () {
@@ -200,7 +200,7 @@
         //  alert('frik');
         //}
 
-        var obsRow = "<tr><td>" + obs.dateRecorded + "</td>" + "<td>" + obsCode + "</td>" + "<td>" + obs.code.text + "</td></tr>";
+        var obsRow = "<tr><td>" + obs.effectiveDateTime + "</td>" + "<td>" + obsCode + "</td>" + "<td>" + obs.code.text + "</td></tr>";
         $("#obsTable").append(obsRow);
         //alert('mec...FFF... ('+ obsRow + ')');
 
