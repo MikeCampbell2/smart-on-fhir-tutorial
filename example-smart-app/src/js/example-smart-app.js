@@ -38,12 +38,12 @@
           //alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
           //alert('mec...here...222');
 
-          alert('mec...here...Above');
+          alert('mec...here...Above a');
           cond.forEach(function (cnd) {
             //var cndRow = cnd.dateRecorded;
             //alert('mec...eee... ('+ cndRow + ')');
             var cndCode = 'n/a';
-            if ((typeof cnd.code != 'undefined') && (typeof cnd.code.coding != 'undefined') && (typeofcnd.code.coding[0] != 'undefined') && (typeof cnd.code.coding[0].code != 'undefined')) {
+            if ((typeof cnd.code != 'undefined') && (typeof cnd.code.coding != 'undefined') && (typeof cnd.code.coding[0] != 'undefined') && (typeof cnd.code.coding[0].code != 'undefined')) {
               cndCode = cnd.code.coding[0].code;
             }
             else {
