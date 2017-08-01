@@ -166,13 +166,19 @@
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Observations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getObservations(smart, pt){
     alert('mec...Observations');
+
     var obsv = smart.patient.api.fetchAll({
-      type: 'Observations',
-      //category: 'problem',
-      //clinicalstatus: 'active' // 'resolved'
-      // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
+      type: 'Observation',
+      query: {
+        code: {
+          $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
+            'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
+            'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
+        }
+      }
     });
-    //alert('mec...here...111');
+
+    alert('mec...here...BBB');
 
     $.when(pt, obsv).fail(
         function () {
@@ -182,7 +188,7 @@
     );
 
     $.when(pt, obsv).done(function(patient, obsv) {
-      $("#patientNameObs").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Observations ' + '(' + obsv.length + ')'); //mec...fix...
+      $("#patientObs").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Observations ' + '(' + obsv.length + ')'); //mec...fix...
 
       obsv.forEach(function (obs) {
 
