@@ -281,7 +281,7 @@
 
     $.when(pt, proc).done(function(patient, proc) {
       proc.forEach(function (prc) {
-        var json = JSON.stringify(eval("(" + prc + ")"));
+        var json = JSON.stringify(prc); //mec...(eval("(" + prc + ")"));
         alert('mec...COOL with ('+ json +')');
       });
 
