@@ -18,6 +18,11 @@
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Observations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         getObservations(smart, pt);
+
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        getProcedures(smart, pt);
+
+
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -206,12 +211,55 @@
         //var byCodes = smart.byCodes(obsv, 'code');
         //alert('mec...HHH... ('+ byCodes(obsCode) + ')');
 
-        alert('mec...GGG');
+        //alert('mec...GGG');
       });
 
     });
   }
   // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Observations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function getProcedures(smart, pt){
+    //alert('mec...Procedures');
+    var proc = smart.patient.api.fetchAll({
+      type: 'Procedure',
+      //category: 'problem',
+      //clinicalstatus: 'active' // 'resolved'
+      // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
+    });
+    //alert('mec...here...111');
+
+    $.when(pt, proc).fail(
+        function () {
+          console.log('Loading error', arguments);
+          alert('Loading Error: ' + arguments);
+        }
+    );
+
+    $.when(pt, proc).done(function(patient, proc) {
+      $("#patientProc").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Procedures ' + '(' + proc.length + ')'); //mec...fix...
+
+      //proc.forEach(function (prc) {
+      //
+      //  var prcCode = '';
+      //  if ((typeof prc.code != 'undefined') && (typeof prc.code.coding != 'undefined') && (typeof prc.code.coding[0] != 'undefined') && (typeof prc.code.coding[0].code != 'undefined')) {
+      //    prcCode = prc.code.coding[0].code;
+      //  }
+      //  //else {
+      //  //  alert('frik');
+      //  //}
+      //
+      //  var prcRow = "<tr><td>" + prc.dateRecorded + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.code.text + "</td></tr>";
+      //  $("#prcTable").append(prcRow);
+      //  //alert('mec...FFF... ('+ prcRow + ')');
+      //
+      //});
+
+    });
+  }
+  // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
   function doit(smart) {
     // THIS FAILED to WRITE to Cerner!!!!!!!!!!
