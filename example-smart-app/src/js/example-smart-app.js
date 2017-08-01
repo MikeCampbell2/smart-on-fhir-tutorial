@@ -41,7 +41,7 @@
           alert('mec...here...Above b');
           cond.forEach(function (cnd) {
 
-            var cndCode = 'n/a';
+            var cndCode = '';
             if ((typeof cnd.code != 'undefined') && (typeof cnd.code.coding != 'undefined') && (typeof cnd.code.coding[0] != 'undefined') && (typeof cnd.code.coding[0].code != 'undefined')) {
               cndCode = cnd.code.coding[0].code;
             }
@@ -91,7 +91,7 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
-          alert('mec...Observation count = (' + obv.count + ')');
+          alert('mec...Observation count = (' + obv.length + ')');
           //alert('mec...here...555');
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
