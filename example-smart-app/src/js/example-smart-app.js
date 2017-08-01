@@ -15,7 +15,8 @@
 
 
         //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Write a Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        doit(smart);
+        //mec...doit(smart);
+        putProcedures(smart, pt);
 
 
         //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -226,7 +227,7 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getProcedures(smart, pt){
-    alert('mec...Procedure');
+    //alert('mec...Procedure');
     var proc = smart.patient.api.fetchAll({
       type: 'Procedure'
     });
@@ -255,6 +256,32 @@
         $("#prcTable").append(prcRow);
         //alert('mec...FFF... ('+ prcRow + ')');
 
+      });
+
+    });
+  }
+  // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+  // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function putProcedures(smart, pt){
+    alert('mec...PUT Procedure');
+    var proc = smart.patient.api.fetchAll({
+      type: 'Procedure'
+    });
+    //alert('mec...here...111');
+
+    $.when(pt, proc).fail(
+        function () {
+          console.log('Putting Procedures error', arguments);
+          alert('Putting Procedures Error: ' + arguments);
+        }
+    );
+
+    $.when(pt, proc).done(function(patient, proc) {
+      proc.forEach(function (prc) {
+        alert('mec...cool with ('+ prc +')');
       });
 
     });
