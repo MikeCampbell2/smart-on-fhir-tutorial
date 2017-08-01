@@ -221,7 +221,7 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getProcedures(smart, pt){
-    //alert('mec...Procedure');
+    alert('mec...Procedure');
     var proc = smart.patient.api.fetchAll({
       type: 'Procedure'
     });
@@ -246,7 +246,7 @@
         //  alert('frik');
         //}
 
-        var prcRow = "<tr><td>" + prc.performedDateTime + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.code.text + "</td></tr>";
+        var prcRow = "<tr><td>" + prc.dateRecorded + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.code.text + "</td></tr>";
         $("#prcTable").append(prcRow);
         //alert('mec...FFF... ('+ prcRow + ')');
 
