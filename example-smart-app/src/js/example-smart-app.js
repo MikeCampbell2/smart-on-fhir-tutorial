@@ -13,12 +13,12 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        alert('mec...here...TOP');
+        alert('mec...here...TOP TOP');
 
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
-          category: 'problem',
-          clinicalstatus: 'active' // 'resolved'
+          //category: 'problem',
+          //clinicalstatus: 'active' // 'resolved'
           // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
         });
         //alert('mec...here...111');
@@ -43,7 +43,7 @@
           cond.forEach(function (cnd) {
             //var cndRow = cnd.dateRecorded;
             //alert('mec...eee... ('+ cndRow + ')');
-            var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.identifier + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
+            var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.code.coding[0].code + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
             $("#cndTable").append(cndRow);
             //alert('mec...FFF... ('+ cndRow + ')');
 
