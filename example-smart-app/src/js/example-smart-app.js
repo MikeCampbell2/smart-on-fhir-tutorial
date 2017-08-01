@@ -178,7 +178,7 @@
       }
     });
 
-    alert('mec...here...CCC');
+    alert('mec...here...DDD');
 
     $.when(pt, obsv).fail(
         function () {
@@ -202,7 +202,8 @@
 
         var obsRow = "<tr><td>" + obs.effectiveDateTime + "</td>" + "<td>" + obsCode + "</td>" + "<td>" + obs.code.text + "</td></tr>";
         $("#obsTable").append(obsRow);
-        //alert('mec...FFF... ('+ obsRow + ')');
+
+        alert('mec...FFF... ('+ byCodes(obsCode) + ')');
 
       });
 
