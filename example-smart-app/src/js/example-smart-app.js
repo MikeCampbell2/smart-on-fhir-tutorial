@@ -159,7 +159,7 @@
   function getConditions(smart, pt){
     // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    alert('mec...AAA');
+    alert('mec...BBB');
     var cond = smart.patient.api.fetchAll({
       type: 'Condition',
       //category: 'problem',
@@ -168,7 +168,12 @@
     });
     //alert('mec...here...111');
 
-    $.when(pt, cond).fail(onError);
+    $.when(pt, cond).fail(
+        function () {
+          console.log('Loading error', arguments);
+          alert('Loading Error: ' + arguments);
+        }
+    );
 
     $.when(pt, cond).done(function(patient, cond) {
       $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
