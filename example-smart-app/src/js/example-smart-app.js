@@ -203,9 +203,10 @@
         var obsRow = "<tr><td>" + obs.effectiveDateTime + "</td>" + "<td>" + obsCode + "</td>" + "<td>" + obs.code.text + "</td></tr>";
         $("#obsTable").append(obsRow);
 
-        var byCodes = smart.byCodes(obsv, 'code');
-        alert('mec...HHH... ('+ byCodes(obsCode) + ')');
+        //var byCodes = smart.byCodes(obsv, 'code');
+        //alert('mec...HHH... ('+ byCodes(obsCode) + ')');
 
+        alert('mec...GGG');
       });
 
     });
