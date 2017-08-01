@@ -224,10 +224,6 @@
     alert('mec...Procedure');
     var proc = smart.patient.api.fetchAll({
       type: 'Procedure'
-      //status: 'completed'
-      //category: 'problem',
-      //clinicalstatus: 'active' // 'resolved'
-      // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
     });
     //alert('mec...here...111');
 
@@ -241,21 +237,20 @@
     $.when(pt, proc).done(function(patient, proc) {
       $("#patientProc").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Procedures ' + '(' + proc.length + ')'); //mec...fix...
 
-      //proc.forEach(function (prc) {
-      //
-      //  var prcCode = '';
-      //  if ((typeof prc.code != 'undefined') && (typeof prc.code.coding != 'undefined') && (typeof prc.code.coding[0] != 'undefined') && (typeof prc.code.coding[0].code != 'undefined')) {
-      //    prcCode = prc.code.coding[0].code;
-      //  }
-      //  //else {
-      //  //  alert('frik');
-      //  //}
-      //
-      //  var prcRow = "<tr><td>" + prc.dateRecorded + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.code.text + "</td></tr>";
-      //  $("#prcTable").append(prcRow);
-      //  //alert('mec...FFF... ('+ prcRow + ')');
-      //
-      //});
+      proc.forEach(function (prc) {
+        var prcCode = '';
+        if ((typeof prc.code != 'undefined') && (typeof prc.code.coding != 'undefined') && (typeof prc.code.coding[0] != 'undefined') && (typeof prc.code.coding[0].code != 'undefined')) {
+          prcCode = prc.code.coding[0].code;
+        }
+        //else {
+        //  alert('frik');
+        //}
+
+        var prcRow = "<tr><td>" + prc.dateRecorded + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.code.text + "</td></tr>";
+        $("#prcTable").append(prcRow);
+        //alert('mec...FFF... ('+ prcRow + ')');
+
+      });
 
     });
   }
