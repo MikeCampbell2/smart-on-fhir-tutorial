@@ -189,7 +189,7 @@
       }
     });
 
-    alert('mec...here...DDD');
+    //alert('mec...here...DDD');
 
     $.when(pt, obsv).fail(
         function () {
@@ -282,58 +282,9 @@
     $.when(pt, proc).done(function(patient, proc) {
       proc.forEach(function (prc) {
         var json = JSON.stringify(prc); //mec...(eval("(" + prc + ")"));
-        alert('mec...COOL WITH ('+ json +')');
+        alert('mec...COOL with ('+ json +')');
 
-        json = {
-          "resourceType": "Procedure",
-          "subject": {
-            "reference": "Patient/4478007",
-            "display": "SMART, FRED RICK"
-          },
-          "status": "completed",
-          "code": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "420013002",
-                "display": "Fluoroscopic angiography of renal artery (procedure)"
-              }
-            ],
-            "text": "Renal angiogram"
-          },
-          "reasonReference": {
-            "reference": "Condition/d36486653",
-            "display": "Renal disease"
-          },
-          "performer": [
-            {
-              "actor": {
-                "reference": "Practitioner/2796007",
-                "display": "Pass, Neo"
-              }
-            }
-          ],
-          "performedDateTime": "2017-08-01T10:02:03.000-08:00",
-          "encounter": {
-            "reference": "Encounter/4135906"
-          },
-          "location": {
-            "reference": "Location/4048128",
-            "display": "Baseline East"
-          },
-          "notes": [
-            {
-              "authorReference": {
-                "reference": "Practitioner/4474007",
-                "display": "Pickering, Kathy"
-              },
-              "time": "2017-08-01T01:02:03.000Z",
-              "text": "Mec... Procedure"
-            }
-          ]
-        };
-
-        var mmm = smart.patient.api.create(json); //mec...{resource: json},cb,err);
+        var mmm = smart.patient.api.create(prc); //mec...{resource: json},cb,err);
         $.when(pt, mmm).fail(
             function () {
               console.log('Create Procedures error', arguments);
