@@ -13,67 +13,45 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        var cond = smart.patient.api.fetchAll({
-          type: 'Condition',
-          //category: 'problem',
-          //clinicalstatus: 'active' // 'resolved'
-          // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
-        });
-        //alert('mec...here...111');
+        // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        getConditions(pt);
+        //var cond = smart.patient.api.fetchAll({
+        //  type: 'Condition',
+        //  //category: 'problem',
+        //  //clinicalstatus: 'active' // 'resolved'
+        //  // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
+        //});
+        ////alert('mec...here...111');
+        //
+        //$.when(pt, cond).fail(onError);
+        //
+        //$.when(pt, cond).done(function(patient, cond) {
+        //  $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
+        //
+        //  cond.forEach(function (cnd) {
+        //
+        //    var cndCode = '';
+        //    if ((typeof cnd.code != 'undefined') && (typeof cnd.code.coding != 'undefined') && (typeof cnd.code.coding[0] != 'undefined') && (typeof cnd.code.coding[0].code != 'undefined')) {
+        //      cndCode = cnd.code.coding[0].code;
+        //    }
+        //    //else {
+        //    //  alert('frik');
+        //    //}
+        //
+        //    var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cndCode + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
+        //    $("#cndTable").append(cndRow);
+        //    //alert('mec...FFF... ('+ cndRow + ')');
+        //
+        //  });
+        //
+        //});
+        // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        $.when(pt, cond).fail(onError);
 
-        //alert('mec...TOP TOP smart has (' + smart.hasOwnProperty('patient') + ')');
-
-//doit(smart); //mec...hmmm
-
-        //alert('mec...here...BBB');
-        $.when(pt, cond).done(function(patient, cond) {
-          $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
-          //var dr = cond.dateRecorded;
-          //alert('mec...here...C ('+ gender + ',' + dr + ',' + dr[0] + ')');
-          //alert('mec...here...CCC (' + gender +')');
-          //alert('mec...here...ddd len (' + cond.length + ')');
-
-          //alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
-          //alert('mec...here...222');
-
-          cond.forEach(function (cnd) {
-
-            var cndCode = '';
-            if ((typeof cnd.code != 'undefined') && (typeof cnd.code.coding != 'undefined') && (typeof cnd.code.coding[0] != 'undefined') && (typeof cnd.code.coding[0].code != 'undefined')) {
-              cndCode = cnd.code.coding[0].code;
-            }
-            //else {
-            //  alert('frik');
-            //}
-
-            var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cndCode + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
-            $("#cndTable").append(cndRow);
-            //alert('mec...FFF... ('+ cndRow + ')');
-
-            //mec...yoyo...???
-            //if (cnd.dateRecorded == '2016-06-27') {
-            //  alert('mec...foundit (' + cnd.dateRecorded + ')');
-            //
-            //  cnd.code.text = cnd.code.text + '1';
-            //  smart.patient.api.update({type: cnd.resourceType, data: JSON.stringify(cnd), id: cnd.id}).then(function(){
-            //    alert('mec...cool it worked (' + cmd.code.text + ')');
-            //  });
-            //
-            //  //patient.name[0].family[0] = "NewName";
-            //  //fhirClient.api.update({type: patient.resourceType, data: JSON.stringify(patient), id: patient.id}).then(function(){
-            //  //  readPatient()
-            //  //});
-            //
-            //}
-          });
-
-        });
         //alert('mec...GGG');
         //alert('mec...here...333');
 
-        alert('mec...here...Above e');
+        alert('mec...here...Above f');
 
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -91,10 +69,10 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
-          alert('mec...Observation length = (' + obv.length + ')' );
+          //alert('mec...Observation length = (' + obv.length + ')' );
           //alert('mec...here...555');
           var byCodes = smart.byCodes(obv, 'code');
-          alert('mec...Observation text = (' + byCodes('text') + ')' );
+          //alert('mec...Observation text = (' + byCodes('text') + ')' );
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
           var day = dob.getDate() + 1; //mec... bug off by 1 day (counts from 0 ???)
@@ -178,8 +156,47 @@
 
   };
 
+  function getConditions(pt){
+    // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    var cond = smart.patient.api.fetchAll({
+      type: 'Condition',
+      //category: 'problem',
+      //clinicalstatus: 'active' // 'resolved'
+      // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
+    });
+    //alert('mec...here...111');
+
+    $.when(pt, cond).fail(onError);
+
+    $.when(pt, cond).done(function(patient, cond) {
+      $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
+
+      cond.forEach(function (cnd) {
+
+        var cndCode = '';
+        if ((typeof cnd.code != 'undefined') && (typeof cnd.code.coding != 'undefined') && (typeof cnd.code.coding[0] != 'undefined') && (typeof cnd.code.coding[0].code != 'undefined')) {
+          cndCode = cnd.code.coding[0].code;
+        }
+        //else {
+        //  alert('frik');
+        //}
+
+        var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cndCode + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
+        $("#cndTable").append(cndRow);
+        //alert('mec...FFF... ('+ cndRow + ')');
+
+      });
+
+    });
+    // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+  }
+
   function doit(smart) {
-    //"use strict";
+    // THIS FAILED to WRITE to Cerner!!!!!!!!!!
 
     //alert('in doit() - top top');
     alert('mec...in doit TOP smart has (' + smart.hasOwnProperty('patient') + ')');
