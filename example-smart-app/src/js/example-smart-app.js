@@ -13,21 +13,21 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        //alert('mec...here...TOP');
+        alert('mec...here...TOP');
 
         var cond = smart.patient.api.fetchAll({
           type: 'Condition',
           category: 'problem',
-          clinicalstatus: 'resolved'
+          clinicalstatus: 'active' // 'resolved'
           // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
         });
         //alert('mec...here...111');
 
         $.when(pt, cond).fail(onError);
 
-        alert('mec...TOP TOP smart has (' + smart.hasOwnProperty('patient') + ')');
+        //alert('mec...TOP TOP smart has (' + smart.hasOwnProperty('patient') + ')');
 
-doit(smart); //mec...hmmm
+//doit(smart); //mec...hmmm
 
         //alert('mec...here...BBB');
         $.when(pt, cond).done(function(patient, cond) {
@@ -43,7 +43,7 @@ doit(smart); //mec...hmmm
           cond.forEach(function (cnd) {
             //var cndRow = cnd.dateRecorded;
             //alert('mec...eee... ('+ cndRow + ')');
-            var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.code.text + "</td></tr>"
+            var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cnd.identifier + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
             $("#cndTable").append(cndRow);
             //alert('mec...FFF... ('+ cndRow + ')');
 
