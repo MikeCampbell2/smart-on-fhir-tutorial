@@ -270,6 +270,101 @@
 
 
     var resource = {
+      "resourceType": "Procedure",
+      "id": "36462565",
+      "meta": {
+        "versionId": "0",
+        "lastUpdated": "2017-08-01T01:02:03.000Z"
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div><p><b>Procedure</b></p><p><b>Subject</b>: SMART, FRED RICK</p><p><b>Code</b>: Renal angiogram, 420013002</p><p><b>Status</b>: Completed</p><p><b>Location</b>: Baseline East</p><p><b>Notes</b>: <ul><li>This is a procedure comment</li></ul></p></div>"
+      },
+      "subject": {
+        "reference": "Patient/4478007",
+        "display": "SMART, FRED RICK"
+      },
+      "status": "completed",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "420013002",
+            "display": "Fluoroscopic angiography of renal artery (procedure)"
+          }
+        ],
+        "text": "Renal angiogram"
+      },
+      "reasonReference": {
+        "reference": "Condition/d36486653",
+        "display": "Renal disease"
+      },
+      "performer": [
+        {
+          "actor": {
+            "reference": "Practitioner/2796007",
+            "display": "Pass, Neo"
+          }
+        }
+      ],
+      "performedDateTime": "2017-08-01T10:02:03.000-08:00",
+      "encounter": {
+        "reference": "Encounter/4135906"
+      },
+      "location": {
+        "reference": "Location/4048128",
+        "display": "Baseline East"
+      },
+      "notes": [
+        {
+          "authorReference": {
+            "reference": "Practitioner/4474007",
+            "display": "Pickering, Kathy"
+          },
+          "time": "2017-08-01T01:02:03.000Z",
+          "text": "Mec... Procedure"
+        }
+      ]
+    };
+
+
+    alert('mec...BEFORE of meat');
+
+    // Create the patient and then update its active flag to "true"
+    smart.api.create({resource: resource},cb,err).done(function (r) {
+      alert('mec...top of meat');
+
+      // NOTE that the patient will now have new "id" assigned by the
+      // server. The next request will be PUT (update) and that id will
+      // be required...
+      var patient = r.data;
+      patient["active"] = true;
+      smart.api.update({resource: patient}).done(function (r) {
+        var out = JSON.stringify(r.data, null, "   ");
+        alert('mec... (' + out + ')');
+        //document.getElementsByTagName("pre")[0].innerText = "Now " +
+        //    "we have the following patient in the FHIR server:\n\n" +
+        //    out;
+      });
+
+      alert('mec...bot of meat');
+
+    });
+
+    alert('out doit - bottom');
+
+  };
+
+  
+
+  function doitJUNK(smart) {
+    // THIS FAILED to WRITE to Cerner!!!!!!!!!!
+
+    //alert('in doit() - top top');
+    alert('mec...in doit TOP smart has (' + smart.hasOwnProperty('patient') + ')');
+
+
+    var resource = {
       "resourceType": "Patient",
       "text": {
         "status": "generated",
