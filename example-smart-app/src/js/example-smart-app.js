@@ -282,7 +282,7 @@
     $.when(pt, proc).done(function(patient, proc) {
       proc.forEach(function (prc) {
         var json = JSON.stringify(prc); //mec...(eval("(" + prc + ")"));
-        alert('mec...COOL with ('+ json +')');
+        alert('mec...COOL WITH ('+ json +')');
 
         // Create the resource
         smart.api.create({resource: prc},cb,err).done(function (r) {
