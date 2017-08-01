@@ -331,21 +331,21 @@
     alert('mec...BEFORE of meat');
 
     // Create the patient and then update its active flag to "true"
-    smart.api.create({resource: resource},cb,err).done(function (r) {
+    smart.patient.api.create({resource: resource},cb,err).done(function (r) {
       alert('mec...top of meat');
 
       // NOTE that the patient will now have new "id" assigned by the
       // server. The next request will be PUT (update) and that id will
       // be required...
-      var patient = r.data;
-      patient["active"] = true;
-      smart.api.update({resource: patient}).done(function (r) {
-        var out = JSON.stringify(r.data, null, "   ");
-        alert('mec... (' + out + ')');
-        //document.getElementsByTagName("pre")[0].innerText = "Now " +
-        //    "we have the following patient in the FHIR server:\n\n" +
-        //    out;
-      });
+      //var patient = r.data;
+      //patient["active"] = true;
+      //smart.patient.api.update({resource: patient}).done(function (r) {
+      //  var out = JSON.stringify(r.data, null, "   ");
+      //  alert('mec... (' + out + ')');
+      //  //document.getElementsByTagName("pre")[0].innerText = "Now " +
+      //  //    "we have the following patient in the FHIR server:\n\n" +
+      //  //    out;
+      //});
 
       alert('mec...bot of meat');
 
@@ -355,7 +355,7 @@
 
   };
 
-  
+
 
   function doitJUNK(smart) {
     // THIS FAILED to WRITE to Cerner!!!!!!!!!!
