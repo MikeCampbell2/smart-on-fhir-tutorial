@@ -221,9 +221,10 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getProcedures(smart, pt){
-    alert('mec...Procedures');
+    alert('mec...Procedure');
     var proc = smart.patient.api.fetchAll({
       type: 'Procedure'
+      //status: 'completed'
       //category: 'problem',
       //clinicalstatus: 'active' // 'resolved'
       // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
