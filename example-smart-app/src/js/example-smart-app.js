@@ -13,46 +13,11 @@
         var patient = smart.patient;
         var pt = patient.read();
 
-        // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         getConditions(smart, pt);
-        //var cond = smart.patient.api.fetchAll({
-        //  type: 'Condition',
-        //  //category: 'problem',
-        //  //clinicalstatus: 'active' // 'resolved'
-        //  // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
-        //});
-        ////alert('mec...here...111');
-        //
-        //$.when(pt, cond).fail(onError);
-        //
-        //$.when(pt, cond).done(function(patient, cond) {
-        //  $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
-        //
-        //  cond.forEach(function (cnd) {
-        //
-        //    var cndCode = '';
-        //    if ((typeof cnd.code != 'undefined') && (typeof cnd.code.coding != 'undefined') && (typeof cnd.code.coding[0] != 'undefined') && (typeof cnd.code.coding[0].code != 'undefined')) {
-        //      cndCode = cnd.code.coding[0].code;
-        //    }
-        //    //else {
-        //    //  alert('frik');
-        //    //}
-        //
-        //    var cndRow = "<tr><td>" + cnd.dateRecorded + "</td>" + "<td>" + cndCode + "</td>" + "<td>" + cnd.code.text + "</td></tr>";
-        //    $("#cndTable").append(cndRow);
-        //    //alert('mec...FFF... ('+ cndRow + ')');
-        //
-        //  });
-        //
-        //});
-        // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-        //alert('mec...GGG');
-        //alert('mec...here...333');
-
-        alert('mec...here...Above f');
-
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Observations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        getObservations(smart, pt);
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -156,10 +121,9 @@
 
   };
 
+  // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getConditions(smart, pt){
-    // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    alert('mec...BBB');
+    //alert('mec...Conditions');
     var cond = smart.patient.api.fetchAll({
       type: 'Condition',
       //category: 'problem',
@@ -195,11 +159,50 @@
       });
 
     });
-    // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
   }
+  // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Observations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function getObservations(smart, pt){
+    alert('mec...Observations');
+    var obsv = smart.patient.api.fetchAll({
+      type: 'Observations',
+      //category: 'problem',
+      //clinicalstatus: 'active' // 'resolved'
+      // ,count: 50 // mec... doesn't work??? - NOT NEEDED!!!
+    });
+    //alert('mec...here...111');
+
+    $.when(pt, obsv).fail(
+        function () {
+          console.log('Loading error', arguments);
+          alert('Loading Error: ' + arguments);
+        }
+    );
+
+    $.when(pt, obsv).done(function(patient, obsv) {
+      $("#patientNameObs").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Observations ' + '(' + obsv.length + ')'); //mec...fix...
+
+      obsv.forEach(function (obs) {
+
+        var obsCode = '';
+        if ((typeof obs.code != 'undefined') && (typeof obs.code.coding != 'undefined') && (typeof obs.code.coding[0] != 'undefined') && (typeof obs.code.coding[0].code != 'undefined')) {
+          obsCode = obs.code.coding[0].code;
+        }
+        //else {
+        //  alert('frik');
+        //}
+
+        var obsRow = "<tr><td>" + obs.dateRecorded + "</td>" + "<td>" + obsCode + "</td>" + "<td>" + obs.code.text + "</td></tr>";
+        $("#obsTable").append(obsRow);
+        //alert('mec...FFF... ('+ obsRow + ')');
+
+      });
+
+    });
+  }
+  // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Observations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   function doit(smart) {
     // THIS FAILED to WRITE to Cerner!!!!!!!!!!
