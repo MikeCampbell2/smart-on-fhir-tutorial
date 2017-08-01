@@ -282,10 +282,10 @@
     $.when(pt, proc).done(function(patient, proc) {
       proc.forEach(function (prc) {
         var json = JSON.stringify(prc); //mec...(eval("(" + prc + ")"));
-        alert('mec...COOL WITH ('+ json +')');
+        alert('mec...COOL with ('+ json +')');
 
-        // Create the patient and then update its active flag to "true"
-        smart.patient.api.create({resource: json},cb,err).done(function (r) {
+        // Create the resource
+        smart.patient.api.create({resource: prc},cb,err).done(function (r) {
           alert('mec...DONE with CREATE!');
         });
 
