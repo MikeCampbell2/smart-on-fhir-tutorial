@@ -38,7 +38,7 @@
           //alert('mec...here...EEE len (' + cond.length + ',' + cond[0].dateRecorded + ')');
           //alert('mec...here...222');
 
-          alert('mec...here...Above b');
+          alert('mec...here...Above c');
           cond.forEach(function (cnd) {
 
             var cndCode = '';
@@ -91,7 +91,7 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
-          alert('mec...Observation count = (' + obv.length + ')');
+          alert('mec...Observation length/text = (' + obv.length  + ',' + obv.code.text + ')' );
           //alert('mec...here...555');
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
