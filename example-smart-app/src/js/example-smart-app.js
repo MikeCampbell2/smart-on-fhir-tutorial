@@ -282,9 +282,9 @@
     $.when(pt, proc).done(function(patient, proc) {
       proc.forEach(function (prc) {
         var json = JSON.stringify(prc); //mec...(eval("(" + prc + ")"));
-        alert('mec...COOL WITH ('+ json +')');
+        alert('mec...COOL with ('+ json +')');
 
-        var mmm = smart.api.create(json); //mec...{resource: json},cb,err);
+        var mmm = smart.patient.api.create(json); //mec...{resource: json},cb,err);
         $.when(pt, mmm).fail(
             function () {
               console.log('Create Procedures error', arguments);
