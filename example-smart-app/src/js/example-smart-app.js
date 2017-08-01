@@ -282,7 +282,7 @@
     $.when(pt, proc).done(function(patient, proc) {
       proc.forEach(function (prc) {
         var json = JSON.stringify(eval("(" + prc + ")"));
-        alert('mec...cool with ('+ json +')');
+        alert('mec...COOL with ('+ json +')');
       });
 
     });
