@@ -179,7 +179,7 @@
     //alert('mec...Observations');
 
     var obsv = smart.patient.api.fetchAll({
-      "type": 'Observation',
+      type: 'Observation',
       query: {
         code: {
           $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
