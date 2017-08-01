@@ -285,7 +285,7 @@
         alert('mec...COOL with ('+ json +')');
 
         // Create the resource
-        smart.patient.api.create({resource: prc},cb,err).done(function (r) {
+        smart.api.create({resource: prc},cb,err).done(function (r) {
           alert('mec...DONE with CREATE!');
         });
 
