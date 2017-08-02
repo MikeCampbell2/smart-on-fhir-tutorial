@@ -323,7 +323,7 @@
   }
 
   function updatePatient(smart, patient) {
-    alert('mec...444... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
+    alert('mec...555... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
     alert('mec... in UPDATE patient (' + JSON.stringify(patient) + ')');
     //patient.name[0].family[0] = "NewName";
     patient.birthDate = "1946-08-22"; //ORG
@@ -338,7 +338,7 @@
     //  alert('mec...COOL!!!!!');
     //});
 
-    var proc = smart.api.update({
+    var proc = smart.patient.api.update({
       type: patient.resourceType,
       data: JSON.stringify(patient),
       id: patient.id
