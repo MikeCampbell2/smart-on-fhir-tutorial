@@ -323,7 +323,7 @@
   }
 
   function updatePatient(smart, patient) {
-    alert('mec...555... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
+    alert('mec...666... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
     alert('mec... in UPDATE patient (' + JSON.stringify(patient) + ')');
     //patient.name[0].family[0] = "NewName";
     patient.birthDate = "1946-08-22"; //ORG
@@ -345,14 +345,14 @@
     });
     //alert('mec...here...111');
 
-    $.when().fail(
+    $.when(patient).fail(
         function () {
           console.log('Updating Patient error', arguments);
           alert('Updating Patient Error: ' + arguments);
         }
     );
 
-    $.when().done(function() {
+    $.when(patient).done(function() {
       alert('mec...MAGIC!!!!!!!!!!!!!!!!!!!!');
     });
 
