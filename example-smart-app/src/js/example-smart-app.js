@@ -329,14 +329,12 @@
     //var patient = smart.patient;
     //var pt = patient.read();
 
-    alert('mec...TOP... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
-    alert('mec...555... in UPDATE SMART patient (' + smart.patient.id + ',' + smart.patient.resourceType + ',' + smart.patient + ',' + JSON.stringify(smart.patient) + ')');
-    alert('mec...xxx... in UPDATE patient (' + patient.resourceType + ',' + patient + ',' + JSON.stringify(patient) + ')');
+    alert('mec...111... in UPDATE patient (' + patient.resourceType + ',' + JSON.stringify(patient) + ',' + patient.id + ')');
     //patient.name[0].family[0] = "NewName";
     patient.birthDate = "1946-08-22"; //ORG
     patient.birthDate = "1946-08-24"; // NEW- DO NOT KEEP THIS, it is the WRONG birthdata
 
-    smart.api.update({
+    smart.patient.api.update({
       type: patient.resourceType,
       data: JSON.stringify(patient),
       id: patient.id
