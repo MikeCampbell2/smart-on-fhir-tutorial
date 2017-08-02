@@ -291,7 +291,7 @@
     );
 
     $.when(pt, proc).done(function(patient, proc) {
-      $("#patientProc").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'MedicationStatement ' + '(' + proc.length + ')'); //mec...fix...
+      $("#patientMed").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'MedicationStatement ' + '(' + proc.length + ')'); //mec...fix...
 
       proc.forEach(function (prc) {
         var prcCode = '';
