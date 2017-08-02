@@ -304,7 +304,19 @@
 
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function readPatient(smart) {
+    var patient;
+    smart.patient.read().then(function(pt) {
+      patient = pt;
+    });
+    return patient;
+  }
+
   function updatePatient(smart, pt) {
+    var patient = readPatient(smart);
+    alert('mec... 111... patient = (' + patient.id + ',' + patient.resourceType + ')');
+
+
     //var patient = smart.patient;
     //var pt = patient.read();
     //
@@ -325,33 +337,33 @@
     //});
 
 
-    alert('mec...Update Patient');
-    alert('mec...TOP... in UPDATE patient (' + pt.resourceType + ',' + pt.id + ')');
-    alert('mec...666... in UPDATE SMART patient (' + smart.patient.id + ',' + smart.patient.resourceType + ',' + smart.patient + ',' + JSON.stringify(smart.patient) + ')');
-    alert('mec...666... in UPDATE patient (' + pt.resourceType + ',' + pt + ',' + JSON.stringify(pt) + ')');
-
-    pt.birthDate = "1946-08-22"; //ORG
-    pt.birthDate = "1946-08-24"; // NEW- DO NOT KEEP THIS, it is the WRONG birthdata
-
-    alert('mec...xxx... in UPDATE patient birthdate (' + pt.birthDate + ')');
-
-    var proc = smart.patient.api.update({
-      type: pt.resourceType,
-      data: JSON.stringify(pt),
-      id: pt.id
-    });
-    //alert('mec...here...111');
-
-    $.when(pt, proc).fail(
-        function () {
-          console.log('Updating Patient error', arguments);
-          alert('Updating Patient Error: ' + arguments);
-        }
-    );
-
-    $.when(pt, proc).done(function(patient, proc) {
-      alert('mec...MAGIC!!!!!!!!!!!!!!!!!!!!');
-    });
+    //alert('mec...Update Patient');
+    //alert('mec...TOP... in UPDATE patient (' + pt.resourceType + ',' + pt.id + ')');
+    //alert('mec...666... in UPDATE SMART patient (' + smart.patient.id + ',' + smart.patient.resourceType + ',' + smart.patient + ',' + JSON.stringify(smart.patient) + ')');
+    //alert('mec...666... in UPDATE patient (' + pt.resourceType + ',' + pt + ',' + JSON.stringify(pt) + ')');
+    //
+    //pt.birthDate = "1946-08-22"; //ORG
+    //pt.birthDate = "1946-08-24"; // NEW- DO NOT KEEP THIS, it is the WRONG birthdata
+    //
+    //alert('mec...xxx... in UPDATE patient birthdate (' + pt.birthDate + ')');
+    //
+    //var proc = smart.patient.api.update({
+    //  type: pt.resourceType,
+    //  data: JSON.stringify(pt),
+    //  id: pt.id
+    //});
+    ////alert('mec...here...111');
+    //
+    //$.when(pt, proc).fail(
+    //    function () {
+    //      console.log('Updating Patient error', arguments);
+    //      alert('Updating Patient Error: ' + arguments);
+    //    }
+    //);
+    //
+    //$.when(pt, proc).done(function(patient, proc) {
+    //  alert('mec...MAGIC!!!!!!!!!!!!!!!!!!!!');
+    //});
 
   }
   // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
