@@ -277,7 +277,7 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MedicationStatement ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getMedicationStatement(smart, pt){
-    alert('mec...777...MedicationStatement');
+    //alert('mec...777...MedicationStatement');
     var proc = smart.patient.api.fetchAll({
       type: 'MedicationStatement'
     });
@@ -312,7 +312,7 @@
 
         var prcRow = "<tr><td>" + prc.dateAsserted + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prcDosage + "</td></tr>";
         $("#medTable").append(prcRow);
-        alert('mec...FFF... ('+ prcRow + ')');
+        //alert('mec...FFF... ('+ prcRow + ')');
       });
 
     });
@@ -321,7 +321,7 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Encounters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getEncounters(smart, pt){
-    //alert('mec...Encounter');
+    alert('mec...111... Encounter');
     var proc = smart.patient.api.fetchAll({
       type: 'Encounter'
     });
@@ -339,16 +339,20 @@
 
       proc.forEach(function (prc) {
         var prcCode = '';
-        if ((typeof prc.code != 'undefined') && (typeof prc.code.coding != 'undefined') && (typeof prc.code.coding[0] != 'undefined') && (typeof prc.code.coding[0].code != 'undefined')) {
-          prcCode = prc.code.coding[0].code;
-        }
-        //else {
-        //  alert('frik');
+        //if ((typeof prc.code != 'undefined') && (typeof prc.code.coding != 'undefined') && (typeof prc.code.coding[0] != 'undefined') && (typeof prc.code.coding[0].code != 'undefined')) {
+        //  prcCode = prc.code.coding[0].code;
         //}
+        ////else {
+        ////  alert('frik');
+        ////}
+        if ((typeof prc.text != 'undefined') && (typeof prc.text.div != 'undefined')) {
+          prcCode = prc.text.div;
+        }
 
-        var prcRow = "<tr><td>" + prc.performedDateTime + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.code.text + "</td></tr>";
+
+        var prcRow = "<tr><td>" + prcCode + "</td>" + "<td>" + "" + "</td>" + "<td>" + "" + "</td></tr>";
         $("#encTable").append(prcRow);
-        //alert('mec...FFF... ('+ prcRow + ')');
+        alert('mec...FFF... ('+ prcRow + ')');
 
       });
 
