@@ -334,10 +334,10 @@
       data: JSON.stringify(patient),
       id: patient.id
     };
-    alert('mec...444... in UPDATE patient (' + pat.type + ',' + pat.id + ')');
+    alert('mec...555... in UPDATE patient (' + pat.type + ',' + pat.id + ')');
     alert('mec... in UPDATE pat.data (' + pat.data + ')');
 
-    smart.api.update({ resource: pat }).done(function(r){alert('mec...cool...' + JSON.stringify(r.data) );}).fail(function(r){alert('mec...bad...'  + JSON.stringify(r.data));});
+    smart.patient.api.update({ resource: pat }).done(function(r){alert('mec...cool...' + JSON.stringify(r.data) );}).fail(function(r){alert('mec...bad...'  + JSON.stringify(r.data));});
     //smart.patient.api.update({
     //  type: patient.resourceType,
     //  data: JSON.stringify(patient),
