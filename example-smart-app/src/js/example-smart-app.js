@@ -321,7 +321,7 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Encounters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getEncounters(smart, pt){
-    alert('mec...111... Encounter');
+    alert('mec...222... Encounter');
     var proc = smart.patient.api.fetchAll({
       type: 'Encounter'
     });
@@ -339,20 +339,14 @@
 
       proc.forEach(function (prc) {
         var prcCode = '';
-        //if ((typeof prc.code != 'undefined') && (typeof prc.code.coding != 'undefined') && (typeof prc.code.coding[0] != 'undefined') && (typeof prc.code.coding[0].code != 'undefined')) {
-        //  prcCode = prc.code.coding[0].code;
-        //}
-        ////else {
-        ////  alert('frik');
-        ////}
+
         if ((typeof prc.text != 'undefined') && (typeof prc.text.div != 'undefined')) {
           prcCode = prc.text.div;
         }
 
-
-        var prcRow = "<tr><td>" + prcCode + "</td>" + "<td>" + "" + "</td>" + "<td>" + "" + "</td></tr>";
+        var prcRow = "<tr><td>" + prcCode + "</td></tr>";
         $("#encTable").append(prcRow);
-        alert('mec...FFF... ('+ prcRow + ')');
+        //alert('mec...FFF... ('+ prcRow + ')');
 
       });
 
