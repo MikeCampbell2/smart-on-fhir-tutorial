@@ -17,7 +17,7 @@
         //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Write a Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //mec...doit(smart);
         //putProcedures(smart, pt);
-        updatePatient(smart, pt);
+        //updatePatient(smart, pt);
 
 
         //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -117,6 +117,11 @@
 
           //var mec = 'bogus...';
           p.ldl = diastolicbp;
+
+
+          //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Write a Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          updatePatient(smart, patient);
+
 
           ret.resolve(p);
         });
@@ -304,7 +309,7 @@
 
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  function readPatient(smart) {
+  function readPatientBAG(smart) {
     var patient = smart.patient;
     var pt = patient.read();
     alert('mec...returning (' + pt.id + ',' + pt.resourceType + ')');
@@ -317,9 +322,8 @@
     //return patient;
   }
 
-  function updatePatient(smart, pt) {
-    var patient = readPatient(smart);
-    alert('mec... 111... patient = (' + patient.id + ',' + patient.resourceType + ')');
+  function updatePatient(smart, patient) {
+    alert('mec... 222... patient = (' + patient.id + ',' + patient.resourceType + ')');
 
 
     //var patient = smart.patient;
