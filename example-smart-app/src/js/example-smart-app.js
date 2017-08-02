@@ -277,7 +277,7 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MedicationStatement ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getMedicationStatement(smart, pt){
-    alert('mec...666...MedicationStatement');
+    alert('mec...777...MedicationStatement');
     var proc = smart.patient.api.fetchAll({
       type: 'MedicationStatement'
     });
@@ -295,14 +295,22 @@
 
       proc.forEach(function (prc) {
         var prcCode = '';
-        if ((typeof prc.medicationCodeableConcept != 'undefined') && (typeof prc.medicationCodeableConcept.coding != 'undefined') && (typeof prc.medicationCodeableConcept.coding[0] != 'undefined') && (typeof prc.medicationCodeableConcept.coding[0].code != 'undefined')) {
-          prcCode = prc.medicationCodeableConcept.coding[0].code;
+        if ((typeof prc.medicationCodeableConcept != 'undefined')) {
+          prcCode = prc.medicationCodeableConcept.text;
         }
         else {
-          alert('frik');
+          if ((typeof prc.medicationReference != 'undefined')) {
+            prcCode = prc.medicationReference.display;
+          }
+          //alert('frik');
         }
 
-        var prcRow = "<tr><td>" + prc.dateAsserted + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.medicationCodeableConcept.text + "</td></tr>";
+        var prcDosage = '';
+        if ((typeof prc.dosage != 'undefined') && (typeof prc.dosage[0] != 'undefined') && (prc.dosage[0].text != 'undefined')) {
+          prcDosage = prc.dosage[0].text;
+        }
+
+        var prcRow = "<tr><td>" + prc.dateAsserted + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prcDosage + "</td></tr>";
         $("#medTable").append(prcRow);
         alert('mec...FFF... ('+ prcRow + ')');
       });
