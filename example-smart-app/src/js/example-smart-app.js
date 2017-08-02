@@ -321,7 +321,7 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Encounters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getEncounters(smart, pt){
-    alert('mec...222... Encounter');
+    //alert('mec...222... Encounter');
     var proc = smart.patient.api.fetchAll({
       type: 'Encounter'
     });
