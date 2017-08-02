@@ -17,7 +17,7 @@
         //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Write a Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //mec...doit(smart);
         //putProcedures(smart, pt);
-        updatePatient(smart, pt);
+        updatePatient(smart);
 
 
         //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -304,9 +304,12 @@
 
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  function updatePatient(smart, pt) {
+  function updatePatient(smart) {
+    var patient = smart.patient;
+    var pt = patient.read();
+
     alert('mec...TOP... in UPDATE patient (' + JSON.stringify(smart.patient) + ')');
-    alert('mec...444... in UPDATE SMART patient (' + smart.patient.id + ',' + smart.patient.resourceType + ',' + smart.patient + ',' + JSON.stringify(smart.patient) + ')');
+    alert('mec...555... in UPDATE SMART patient (' + smart.patient.id + ',' + smart.patient.resourceType + ',' + smart.patient + ',' + JSON.stringify(smart.patient) + ')');
     alert('mec...xxx... in UPDATE patient (' + pt.resourceType + ',' + pt + ',' + JSON.stringify(pt) + ')');
     //pt.name[0].family[0] = "NewName";
     pt.birthDate = "1946-08-22"; //ORG
@@ -314,7 +317,7 @@
 
     smart.api.update({
       type: pt.resourceType,
-      data: pt, //mec... JSON.stringify(pt),
+      data: JSON.stringify(pt),
       id: pt.id
     }).then(function () {
       //mec...readPatient()
