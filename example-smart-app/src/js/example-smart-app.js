@@ -323,8 +323,8 @@
   }
 
   function updatePatient(smart, patient) {
-    alert('mec...111... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
-    alert('mec... in UPDATE patient (' + JSON.stringify(patient) + ')');
+    //alert('mec...111... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
+    //alert('mec... in UPDATE patient (' + JSON.stringify(patient) + ')');
     //patient.name[0].family[0] = "NewName";
     patient.birthDate = "1946-08-22"; //ORG
     patient.birthDate = "1946-08-24"; // NEW- DO NOT KEEP THIS, it is the WRONG birthdata
@@ -334,7 +334,7 @@
       data: JSON.stringify(patient),
       id: patient.id
     };
-    alert('mec...222... in UPDATE patient (' + pat.resourceType + ',' + pat.id + ')');
+    alert('mec...333... in UPDATE patient (' + pat.type + ',' + pat.id + ',' + pat.data.birthDate + ')');
     alert('mec... in UPDATE pat.data (' + pat.data + ')');
 
     smart.api.update({ resource: pat }).done(function(r){alert('mec...cool...' + JSON.stringify(r.data) );}).fail(function(r){alert('mec...bad...'  + JSON.stringify(r.data));});
