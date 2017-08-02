@@ -323,7 +323,7 @@
   }
 
   function updatePatient(smart, patient) {
-    alert('mec...333... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
+    alert('mec...444... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
     alert('mec... in UPDATE patient (' + JSON.stringify(patient) + ')');
     //patient.name[0].family[0] = "NewName";
     patient.birthDate = "1946-08-22"; //ORG
@@ -345,16 +345,27 @@
     });
     //alert('mec...here...111');
 
-    $.when(patient, proc).fail(
+    $.when().fail(
         function () {
           console.log('Updating Patient error', arguments);
           alert('Updating Patient Error: ' + arguments);
         }
     );
 
-    $.when(patient, proc).done(function(patient, proc) {
+    $.when().done(function() {
       alert('mec...MAGIC!!!!!!!!!!!!!!!!!!!!');
     });
+
+    //$.when(patient, proc).fail(
+    //    function () {
+    //      console.log('Updating Patient error', arguments);
+    //      alert('Updating Patient Error: ' + arguments);
+    //    }
+    //);
+    //
+    //$.when(patient, proc).done(function(patient, proc) {
+    //  alert('mec...MAGIC!!!!!!!!!!!!!!!!!!!!');
+    //});
 
   }
   // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
