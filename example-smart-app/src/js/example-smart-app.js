@@ -277,9 +277,9 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MedicationStatement ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getMedicationStatement(smart, pt){
-    //alert('mec...MedicineStatement');
+    //alert('mec...MedicationStatement');
     var proc = smart.patient.api.fetchAll({
-      type: 'MedicineStatement'
+      type: 'MedicationStatement'
     });
     //alert('mec...here...111');
 
