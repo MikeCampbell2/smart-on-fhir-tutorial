@@ -16,7 +16,8 @@
 
         //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Write a Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //mec...doit(smart);
-        putProcedures(smart, pt);
+        //putProcedures(smart, pt);
+        updatePatient(smart, pt);
 
 
         //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Conditions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -300,6 +301,23 @@
     });
   }
   // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function updatePatient(smart, pt) {
+    alert('mec...in UPDATE patient ('+JSON.stringify(pt)+')');
+    //pt.name[0].family[0] = "NewName";
+    pt.maritalStatus.text = "Single";
+    smart.api.update({
+      type: pt.resourceType,
+      data: JSON.stringify(pt),
+      id: pt.id
+    }).then(function () {
+      //mec...readPatient()
+      alert('mec...COOL!!!!!');
+    });
+  }
+  // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
   function doit(smart) {
