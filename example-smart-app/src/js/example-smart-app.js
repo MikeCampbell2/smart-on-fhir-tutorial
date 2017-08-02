@@ -334,7 +334,8 @@
       data: JSON.stringify(patient),
       id: patient.id
     };
-    alert('mec... in UPDATE pat.data (' + JSON.stringify(pat.data) + ')');
+    alert('mec...222... in UPDATE patient (' + pat.resourceType + ',' + pat.id + ')');
+    alert('mec... in UPDATE pat.data (' + pat.data + ')');
 
     smart.api.update({ resource: pat }).done(function(r){alert('mec...cool...' + JSON.stringify(r.data) );}).fail(function(r){alert('mec...bad...'  + JSON.stringify(r.data));});
     //smart.patient.api.update({
