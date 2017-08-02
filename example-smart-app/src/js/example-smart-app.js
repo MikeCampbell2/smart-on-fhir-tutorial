@@ -323,12 +323,19 @@
   }
 
   function updatePatient(smart, patient) {
-    alert('mec...777... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
+    alert('mec...888... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
     alert('mec... in UPDATE patient (' + JSON.stringify(patient) + ')');
     //patient.name[0].family[0] = "NewName";
     patient.birthDate = "1946-08-22"; //ORG
     patient.birthDate = "1946-08-24"; // NEW- DO NOT KEEP THIS, it is the WRONG birthdata
 
+    var pat = {
+      type: patient.resourceType,
+      data: JSON.stringify(patient),
+      id: patient.id
+    };
+
+    smart.api.update({ resource: pat }).done(function(r){alert('mec...cool...');}).fail(function(r){alert('mec...bad...');});
     //smart.patient.api.update({
     //  type: patient.resourceType,
     //  data: JSON.stringify(patient),
@@ -338,23 +345,23 @@
     //  alert('mec...COOL!!!!!');
     //});
 
-    var proc = smart.api.update({
-      type: patient.resourceType,
-      data: JSON.stringify(patient),
-      id: patient.id
-    });
-    //alert('mec...here...111');
-
-    $.when(patient).fail(
-        function () {
-          console.log('Updating Patient error', arguments);
-          alert('Updating Patient Error: ' + arguments);
-        }
-    );
-
-    $.when(patient).done(function() {
-      alert('mec...MAGIC!!!!!!!!!!!!!!!!!!!!');
-    });
+    //var proc = smart.api.update({
+    //  type: patient.resourceType,
+    //  data: JSON.stringify(patient),
+    //  id: patient.id
+    //});
+    ////alert('mec...here...111');
+    //
+    //$.when(patient).fail(
+    //    function () {
+    //      console.log('Updating Patient error', arguments);
+    //      alert('Updating Patient Error: ' + arguments);
+    //    }
+    //);
+    //
+    //$.when(patient).done(function() {
+    //  alert('mec...MAGIC!!!!!!!!!!!!!!!!!!!!');
+    //});
 
     //$.when(patient, proc).fail(
     //    function () {
