@@ -305,11 +305,16 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function readPatient(smart) {
-    var patient;
-    smart.patient.read().then(function(pt) {
-      patient = pt;
-    });
-    return patient;
+    var patient = smart.patient;
+    var pt = patient.read();
+    alert('mec...returning (' + pt.id + ',' + pt.resourceType + ')');
+    return pt;
+
+    //var patient;
+    //smart.patient.read().then(function(pt) {
+    //  patient = pt;
+    //});
+    //return patient;
   }
 
   function updatePatient(smart, pt) {
