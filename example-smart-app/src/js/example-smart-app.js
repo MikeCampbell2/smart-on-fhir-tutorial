@@ -305,14 +305,14 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function updatePatient(smart, pt) {
-    alert('mec...111... in UPDATE patient (' + JSON.stringify(pt) + ')');
+    alert('mec...222... in UPDATE patient (' + pt.resourceType + ',' + pt + ',' + JSON.stringify(pt) + ')');
     //pt.name[0].family[0] = "NewName";
     pt.birthDate = "1946-08-22"; //ORG
     pt.birthDate = "1946-08-24"; // NEW- DO NOT KEEP THIS, it is the WRONG birthdata
 
     smart.api.update({
       type: pt.resourceType,
-      data: JSON.stringify(pt),
+      data: pt, //mec... JSON.stringify(pt),
       id: pt.id
     }).then(function () {
       //mec...readPatient()
