@@ -277,7 +277,7 @@
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MedicationStatement ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function getMedicationStatement(smart, pt){
-    alert('mec...222...MedicationStatement');
+    alert('mec...333...MedicationStatement');
     var proc = smart.patient.api.fetchAll({
       type: 'MedicationStatement'
     });
@@ -302,7 +302,7 @@
         //  alert('frik');
         //}
 
-        var prcRow = "<tr><td>" + "prc.dateAsserted" + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.medicationCodeableConcept.text + "</td></tr>";
+        var prcRow = "<tr><td>" + "prc.dateAsserted" + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + "prc.medicationCodeableConcept.text" + "</td></tr>";
         $("#medTable").append(prcRow);
         //alert('mec...FFF... ('+ prcRow + ')');
 
