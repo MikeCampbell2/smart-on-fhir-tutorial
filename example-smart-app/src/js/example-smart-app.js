@@ -29,6 +29,12 @@
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         getProcedures(smart, pt);
 
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MedicationStatement ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        getMedicationStatement(smart, pt);
+
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Encounters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        getEncounters(smart, pt);
+
 
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -120,7 +126,7 @@
 
 
           //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Write a Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-          updatePatient(smart, patient);
+          //mec...yoyo... didn't work: updatePatient(smart, patient);
 
 
           ret.resolve(p);
@@ -269,6 +275,80 @@
   // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+  // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MedicationStatement ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function getMedicationStatement(smart, pt){
+    //alert('mec...MedicineStatement');
+    var proc = smart.patient.api.fetchAll({
+      type: 'MedicineStatement'
+    });
+    //alert('mec...here...111');
+
+    $.when(pt, proc).fail(
+        function () {
+          console.log('Loading MedicationStatement error', arguments);
+          alert('Loading MedicationStatement Error: ' + arguments);
+        }
+    );
+
+    $.when(pt, proc).done(function(patient, proc) {
+      $("#patientProc").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'MedicationStatement ' + '(' + proc.length + ')'); //mec...fix...
+
+      proc.forEach(function (prc) {
+        var prcCode = '';
+        if ((typeof prc.code != 'undefined') && (typeof prc.code.coding != 'undefined') && (typeof prc.code.coding[0] != 'undefined') && (typeof prc.code.coding[0].code != 'undefined')) {
+          prcCode = prc.code.coding[0].code;
+        }
+        //else {
+        //  alert('frik');
+        //}
+
+        var prcRow = "<tr><td>" + prc.performedDateTime + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.code.text + "</td></tr>";
+        $("#medTable").append(prcRow);
+        //alert('mec...FFF... ('+ prcRow + ')');
+
+      });
+
+    });
+  }
+  // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MedicationStatement ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Encounters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function getEncounters(smart, pt){
+    //alert('mec...Encounter');
+    var proc = smart.patient.api.fetchAll({
+      type: 'Encounter'
+    });
+    //alert('mec...here...111');
+
+    $.when(pt, proc).fail(
+        function () {
+          console.log('Loading Encounters error', arguments);
+          alert('Loading Encounters Error: ' + arguments);
+        }
+    );
+
+    $.when(pt, proc).done(function(patient, proc) {
+      $("#patientEnc").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Encounters ' + '(' + proc.length + ')'); //mec...fix...
+
+      proc.forEach(function (prc) {
+        var prcCode = '';
+        if ((typeof prc.code != 'undefined') && (typeof prc.code.coding != 'undefined') && (typeof prc.code.coding[0] != 'undefined') && (typeof prc.code.coding[0].code != 'undefined')) {
+          prcCode = prc.code.coding[0].code;
+        }
+        //else {
+        //  alert('frik');
+        //}
+
+        var prcRow = "<tr><td>" + prc.performedDateTime + "</td>" + "<td>" + prcCode + "</td>" + "<td>" + prc.code.text + "</td></tr>";
+        $("#encTable").append(prcRow);
+        //alert('mec...FFF... ('+ prcRow + ')');
+
+      });
+
+    });
+  }
+  // ^^^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Encounters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Procedures ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   function putProcedures(smart, pt){
@@ -309,19 +389,6 @@
 
 
   // VVV ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Patient ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  function readPatientBAG(smart) {
-    var patient = smart.patient;
-    var pt = patient.read();
-    alert('mec...returning (' + pt.id + ',' + pt.resourceType + ')');
-    return pt;
-
-    //var patient;
-    //smart.patient.read().then(function(pt) {
-    //  patient = pt;
-    //});
-    //return patient;
-  }
-
   function updatePatient(smart, patient) {
     //alert('mec...111... in UPDATE patient (' + patient.resourceType + ',' + patient.id + ')');
     //alert('mec... in UPDATE patient (' + JSON.stringify(patient) + ')');
@@ -334,7 +401,7 @@
       data: JSON.stringify(patient),
       id: patient.id
     };
-    alert('mec...555... in UPDATE patient (' + pat.type + ',' + pat.id + ')');
+    alert('mec...666... in UPDATE patient (' + pat.type + ',' + pat.id + ')');
     alert('mec... in UPDATE pat.data (' + pat.data + ')');
 
     smart.patient.api.update({ resource: pat }).done(function(r){alert('mec...cool...' + JSON.stringify(r.data) );}).fail(function(r){alert('mec...bad...'  + JSON.stringify(r.data));});
