@@ -126,7 +126,7 @@
     </script>
 
     <h2 id="patientId"></h2>
-    <input id="clickMe" type="button" value="click MEC" onclick="doMecFunction('' + patientId.text + '');"/>
+    <input id="clickMe" type="button" value="click MEC" onclick="doMecFunction('' + $('#patientId') + '');"/>
     <script>
       function doMecFunction(patientId) {
         alert('mec...(' + patientId + ')');
