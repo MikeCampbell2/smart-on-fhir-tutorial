@@ -126,27 +126,16 @@
     </script>
 
     <h2 id="patientId"></h2>
-
-    <h1 id="myHeader">Hello World!</h1>
-    <script>
-      var asdf = document.getElementById("myHeader").innerHTML;
-      alert('mec...(' + asdf + ')');
-    </script>
-
-
-
     <input id="clickMe" type="button" value="click MEC" onclick="doMecFunction('' +  document.getElementById('patientId').innerHTML + '');"/>
     <script>
       function doMecFunction(patientId) {
-        alert(patientId);
-        var pId = document.getElementById("patientId").innerHTML;
-        alert('mec...(' + pId + ')');
-        
-        var patientId = '58b372eb3425def27928cfa8'; //mec... vista: '5000000359V775335';
+        var processingPatientId = '58b372eb3425def27928cfa8'; //mec... vista: '5000000359V775335';
+        alert('mec... BOGUS, SHOULD process (' + patientId + '), but FAKING and using (' + processingPatientId + ')');
+
         window.open(
-                //'https://orchard.digitaldxc.com/dhp-fhir/api/Patient/' + patientId + '/$everything',
-                'http://localhost:8080/Patient/' + patientId + '/Condition',
-                //'https://syntheticmass.mitre.org/fhir/Patient/' + patientId + '/$everything',
+                //'https://orchard.digitaldxc.com/dhp-fhir/api/Patient/' + processingPatientId + '/$everything',
+                'http://localhost:8080/Patient/' + processingPatientId + '/Condition',
+                //'https://syntheticmass.mitre.org/fhir/Patient/' + processingPatientId + '/$everything',
                 '_blank' // <- This is what makes it open in a new window.
         );
       }
