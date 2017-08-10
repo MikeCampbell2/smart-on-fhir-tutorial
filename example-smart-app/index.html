@@ -126,13 +126,14 @@
     </script>
 
     <h2 id="patientId"></h2>
-    <input id="clickMe" type="button" value="click MEC" onclick="doMecFunction('' + $('#patientId') + '');"/>
+    <input id="clickMe" type="button" value="click MEC" onclick="doMecFunction('' + $('#patientId').innerHTML + '');"/>
     <script>
       function doMecFunction(patientId) {
         alert('mec...(' + patientId + ')');
-        var patientId = '5000000359V775335';
+        var patientId = '58b372eb3425def27928cfa8'; //mec... vista: '5000000359V775335';
         window.open(
-                'https://orchard.digitaldxc.com/dhp-fhir/api/Patient/' + patientId + '/$everything',
+                //'https://orchard.digitaldxc.com/dhp-fhir/api/Patient/' + patientId + '/$everything',
+                'http://localhost:8080/Patient/' + patientId + '/Condition',
                 //'https://syntheticmass.mitre.org/fhir/Patient/' + patientId + '/$everything',
                 '_blank' // <- This is what makes it open in a new window.
         );
