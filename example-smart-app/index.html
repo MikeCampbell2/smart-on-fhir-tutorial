@@ -126,6 +126,15 @@
     </script>
 
     <h2 id="patientId"></h2>
+
+    <h1 id="myHeader">Hello World!</h1>
+    <script>
+      var asdf = document.getElementById("myHeader").innerHTML;
+      alert('mec...(' + asdf + ')');
+    </script>
+
+
+
     <input id="clickMe" type="button" value="click MEC" onclick="doMecFunction('' + $('#patientId').innerHTML + '');"/>
     <script>
       function doMecFunction(patientId) {
