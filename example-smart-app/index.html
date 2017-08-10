@@ -124,14 +124,19 @@
         }
       );
     </script>
-    <input id="clickMe" type="button" value="clickme" onclick="doMecFunction();" />
+
+    <h2 id="patientId"></h2>
+    <input id="clickMe" type="button" value="clickme" onclick="doMecFunction('patientId');"/>
     <script>
-      function doMecFunction() {
+      function doMecFunction(patientId) {
+        alert('mec...(' + patientId + ')');
+        var patientId = '58b3663f3425def0f0f6b2b2';
         window.open(
-                'https://syntheticmass.mitre.org/fhir/Patient/58b3663f3425def0f0f6b2b2/$everything',
+                'https://syntheticmass.mitre.org/fhir/Patient/' + patientId + '/$everything',
                 '_blank' // <- This is what makes it open in a new window.
         );
       }
     </script>
+
   </body>
 </html>
