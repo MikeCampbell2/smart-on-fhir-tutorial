@@ -135,10 +135,13 @@
 
 
 
-    <input id="clickMe" type="button" value="click MEC" onclick="doMecFunction('' + $('#patientId').innerHTML + '');"/>
+    <input id="clickMe" type="button" value="click MEC" onclick="doMecFunction('' +  document.getElementById('patientId').innerHTML + '');"/>
     <script>
       function doMecFunction(patientId) {
-        alert('mec...(' + patientId + ')');
+        alert(patientId);
+        var pId = document.getElementById("patientId").innerHTML;
+        alert('mec...(' + pId + ')');
+        
         var patientId = '58b372eb3425def27928cfa8'; //mec... vista: '5000000359V775335';
         window.open(
                 //'https://orchard.digitaldxc.com/dhp-fhir/api/Patient/' + patientId + '/$everything',
