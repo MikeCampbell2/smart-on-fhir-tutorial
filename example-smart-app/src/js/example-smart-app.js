@@ -162,8 +162,9 @@
         }
     );
 
-    $.when(pt, cond).done(function(patient, cond) {
+    $.when(pt, cond).done(function (patient, cond) {
       $("#patientName").text(patient.name[0].given + ' ' + patient.name[0].family + ' (' + patient.id + ')' + ' - ' + 'Conditions ' + '(' + cond.length + ')'); //mec...fix...
+      $("#patientId").text(patient.id);
 
       cond.forEach(function (cnd) {
 

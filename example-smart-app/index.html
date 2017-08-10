@@ -130,9 +130,10 @@
     <script>
       function doMecFunction(patientId) {
         alert('mec...(' + patientId + ')');
-        var patientId = '58b3663f3425def0f0f6b2b2';
+        var patientId = '5000000359V775335';
         window.open(
-                'https://syntheticmass.mitre.org/fhir/Patient/' + patientId + '/$everything',
+                'https://orchard.digitaldxc.com/dhp-fhir/api/Patient/' + patientId + '/$everything',
+                //'https://syntheticmass.mitre.org/fhir/Patient/' + patientId + '/$everything',
                 '_blank' // <- This is what makes it open in a new window.
         );
       }
