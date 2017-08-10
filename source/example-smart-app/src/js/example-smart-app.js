@@ -1,6 +1,5 @@
 (function(window){
   window.extractData = function() {
-    alert('mec...dude...111111');
     var ret = $.Deferred();
 
     function onError() {

@@ -124,5 +124,14 @@
         }
       );
     </script>
+    <input id="clickMe" type="button" value="clickme" onclick="doMecFunction();" />
+    <script>
+      function doMecFunction() {
+        window.open(
+                'https://syntheticmass.mitre.org/fhir/Patient/58b3663f3425def0f0f6b2b2/$everything',
+                '_blank' // <- This is what makes it open in a new window.
+        );
+      }
+    </script>
   </body>
 </html>
